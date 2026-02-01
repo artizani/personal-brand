@@ -39,7 +39,7 @@ export default function Home() {
             How I think
           </h2>
           <p className="text-lg text-gray-700 mb-10 leading-relaxed pl-6">
-            Selected writing on building and leading systems that don't get second chances.
+            Selected writing on building and leading systems that don&apos;t get second chances.
           </p>
           <div className="space-y-6">
             <div className="bg-white p-6 border-l-4 border-tesco-blue hover:shadow-md transition-shadow">
@@ -47,7 +47,7 @@ export default function Home() {
                 Why most technical leadership fails at scale
               </h3>
               <p className="text-gray-700 leading-relaxed">
-                Competence doesn't collapse systems. Poor judgment does.
+                Competence doesn&apos;t collapse systems. Poor judgment does.
               </p>
             </div>
             <div className="bg-white p-6 border-l-4 border-tesco-blue hover:shadow-md transition-shadow">
@@ -63,7 +63,7 @@ export default function Home() {
                 Security is an operational problem, not a tooling problem
               </h3>
               <p className="text-gray-700 leading-relaxed">
-                Tools don't enforce discipline. Systems do.
+                Tools don&apos;t enforce discipline. Systems do.
               </p>
             </div>
             <div className="bg-white p-6 border-l-4 border-tesco-blue hover:shadow-md transition-shadow">
@@ -71,7 +71,7 @@ export default function Home() {
                 What large organizations actually need from engineers
               </h3>
               <p className="text-gray-700 leading-relaxed">
-                Hint: it's not cleverness.
+                Hint: it&apos;s not cleverness.
               </p>
             </div>
             <div className="bg-white p-6 border-l-4 border-tesco-blue hover:shadow-md transition-shadow">
@@ -107,7 +107,7 @@ export default function Home() {
           </li>
           <li className="leading-relaxed flex items-start">
             <span className="text-tesco-magenta mr-3 text-2xl">•</span>
-            <span>Currently building Taxable.ng, Nigeria's first digital tax filing platform</span>
+            <span>Currently building Taxable.ng, Nigeria&apos;s first digital tax filing platform</span>
           </li>
         </ul>
       </section>

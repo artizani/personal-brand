@@ -16,11 +16,11 @@ export default function About() {
       <section className="max-w-4xl mx-auto px-6 py-16">
         <div className="space-y-8 text-lg text-gray-700 leading-relaxed mb-16">
           <p className="pl-6 border-l-4 border-tesco-blue">
-            I'm a technology leader and founder focused on systems that operate in the real world —
+            I&apos;m a technology leader and founder focused on systems that operate in the real world —
             where failure has cost, complexity is unavoidable, and constraints are non-negotiable.
           </p>
           <p className="pl-6 border-l-4 border-tesco-magenta">
-            I've worked across infrastructure, security, logistics, and compliance-heavy
+            I&apos;ve worked across infrastructure, security, logistics, and compliance-heavy
             environments, building software that supports large organizations and critical operations.
           </p>
         </div>
