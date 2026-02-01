@@ -1,0 +1,13 @@
+name = "personal-brand"
+compatibility_date = "2024-01-01"
+pages_build_output_dir = ".vercel/output/static"
+
+# Cloudflare Pages configuration
+# Deploy with: npm run deploy
+# Preview with: npm run preview
+
+[env.production]
+name = "personal-brand"
+
+[env.preview]
+name = "personal-brand-preview"
