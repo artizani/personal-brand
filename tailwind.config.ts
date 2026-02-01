@@ -12,6 +12,7 @@ const config: Config = {
         tesco: {
           blue: '#00539F',
           magenta: '#C8102E',
+          'blue-light': '#E6EEF7',
         },
       },
       fontFamily: {
