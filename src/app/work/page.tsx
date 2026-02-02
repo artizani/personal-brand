@@ -51,6 +51,35 @@ export default function Work() {
           </p>
         </div>
 
+        <div className="mb-16 bg-gray-50 p-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6 border-l-4 border-tesco-blue pl-4">
+            Payment
+          </h2>
+          <p className="text-lg text-gray-700 mb-8">
+            Sessions are $500 per hour, paid in advance.
+          </p>
+
+          <div className="space-y-4">
+            <a
+              href="https://buy.stripe.com/YOUR_PAYMENT_LINK"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full bg-tesco-blue text-white text-center py-4 px-6 font-semibold hover:bg-opacity-90 transition-all"
+            >
+              Pay with Stripe
+            </a>
+
+            <a
+              href="https://paypal.me/YOUR_PAYPAL_LINK"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full border-2 border-gray-300 text-gray-900 text-center py-4 px-6 font-semibold hover:border-gray-400 transition-all"
+            >
+              Pay with PayPal
+            </a>
+          </div>
+        </div>
+
         <div className="mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-4 border-l-4 border-tesco-blue pl-4">
             Get in Touch
@@ -64,7 +93,7 @@ export default function Work() {
         <form
           action="https://formspree.io/f/YOUR_FORM_ID"
           method="POST"
-          className="bg-gray-50 p-8 space-y-6"
+          className="bg-gray-50 p-8 space-y-6 mb-16"
         >
           <div>
             <label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-2">
@@ -124,6 +153,22 @@ export default function Work() {
             Send Message
           </button>
         </form>
+
+        <div className="bg-tesco-blue text-white p-8 text-center">
+          <h2 className="text-3xl font-bold mb-4">Book a Private Advisory Session</h2>
+          <p className="text-lg mb-6 opacity-95">
+            60-minute sessions available. Review your specific challenge and receive direct
+            guidance.
+          </p>
+          <a
+            href="https://calendly.com/YOUR_CALENDLY_LINK"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-white text-tesco-blue px-8 py-3 font-semibold hover:bg-opacity-90 transition-all"
+          >
+            Schedule Session
+          </a>
+        </div>
       </section>
     </main>
   )
