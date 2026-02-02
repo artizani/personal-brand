@@ -34,6 +34,12 @@ export default function Navigation() {
               Speaking
             </Link>
             <Link
+              href="/work"
+              className="text-gray-700 font-medium px-4 py-2 rounded-md hover:bg-tesco-blue-light hover:text-tesco-blue transition-all"
+            >
+              Work
+            </Link>
+            <Link
               href="/about"
               className="text-gray-700 font-medium px-4 py-2 rounded-md hover:bg-tesco-blue-light hover:text-tesco-blue transition-all"
             >
