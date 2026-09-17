@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#ffffff;}
+a{color:#2f5fe0;}
+a:hover{color:#1c3fa8;}
+</style>
+</helmet>
+<div style="font-family:'Archivo',sans-serif;background:#ffffff;color:#111111;">
+<dc-import name="Header" active="about" hint-size="100%,90px"></dc-import>
+
+<section style="max-width:1360px;margin:0 auto;padding:50px 5vw 70px;background:#fafafa;display:grid;grid-template-columns:minmax(240px,1fr) minmax(220px,340px);gap:40px;align-items:center;">
+  <div>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;"><span style="width:16px;height:1px;background:#111111;"></span><span style="font-size:11px;font-weight:700;letter-spacing:0.08em;">ABOUT</span></div>
+    <h1 style="font-size:clamp(30px,4.2vw,46px);font-weight:800;line-height:1.1;margin:0 0 18px;letter-spacing:-0.02em;">Founder.<br>Builder.<br>Operator.</h1>
+    <p style="font-size:15px;line-height:1.6;color:#5a5a5a;margin:0 0 26px;">David Salami is a technology leader and founder focused on systems that operate in the real world, where failure has cost, complexity is unavoidable and constraints are non-negotiable.</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;">
+      <a href="./WorkWithMe.dc.html" style="background:#111111;color:#ffffff;padding:14px 26px;font-size:12px;font-weight:700;letter-spacing:0.05em;text-decoration:none;">WORK WITH ME →</a>
+      <a href="#" style="border:1px solid #111111;color:#111111;padding:14px 26px;font-size:12px;font-weight:700;letter-spacing:0.05em;text-decoration:none;">ABOUT DAVID</a>
+    </div>
+  </div>
+  <image-slot id="about-headshot" shape="rect" style="width:100%;aspect-ratio:4/5;" placeholder="Drop a headshot of David"></image-slot>
+</section>
+
+<section style="background:#0a0a0a;color:#ffffff;padding:60px 5vw;">
+  <div style="max-width:1360px;margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;">
+    <div>
+      <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;color:#9a9a9a;margin-bottom:16px;">INTRODUCTION</div>
+      <h2 style="font-size:clamp(24px,3vw,32px);font-weight:800;line-height:1.2;margin:0 0 20px;letter-spacing:-0.02em;">Building technology that survives reality.</h2>
+      <p style="font-size:13px;line-height:1.6;color:#b3b3b3;margin:0 0 14px;">David is a technology leader and founder focused on systems that operate in the real world, where failure has cost, complexity is unavoidable and constraints are non-negotiable.</p>
+      <p style="font-size:13px;line-height:1.6;color:#b3b3b3;margin:0;">His work spans infrastructure, security, logistics and compliance heavy environments, building software that supports large organizations and critical operations. He treats it as one continuous problem rather than separate lanes.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px;padding-top:6px;">
+      <div style="display:flex;justify-content:space-between;font-size:13px;"><span style="color:#9a9a9a;">CURRENTLY BUILDING</span><span style="font-weight:700;">Taxable.ng</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:13px;"><span style="color:#9a9a9a;">FOUNDER</span><span style="font-weight:700;">Islands Digital</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:13px;"><span style="color:#9a9a9a;">FOCUS</span><span style="font-weight:700;text-align:right;">Technology, Infrastructure, Company building</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="max-width:1360px;margin:0 auto;padding:70px 5vw;">
+  <h2 style="font-size:clamp(24px,3.2vw,34px);font-weight:800;line-height:1.2;margin:0 0 40px;max-width:520px;letter-spacing:-0.02em;">The work has always been about building at scale.</h2>
+  <div style="display:flex;flex-direction:column;gap:34px;">
+    <sc-for list="{{ timeline }}" as="t" hint-placeholder-count="4">
+      <div style="display:flex;gap:18px;">
+        <div style="width:10px;height:10px;border-radius:50%;border:2px solid {{ t.color }};margin-top:6px;flex:none;"></div>
+        <div>
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.05em;color:#9a9a9a;margin-bottom:8px;">{{ t.tag }}</div>
+          <div style="font-size:17px;font-weight:800;margin-bottom:8px;">{{ t.title }}</div>
+          <p style="font-size:13px;line-height:1.6;color:#5a5a5a;margin:0 0 8px;max-width:560px;">{{ t.desc }}</p>
+          <p style="font-size:12px;line-height:1.6;color:#9a9a9a;font-style:italic;margin:0;max-width:560px;">Why it mattered: {{ t.why }}</p>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section style="background:#0a0a0a;color:#ffffff;padding:70px 5vw;">
+  <div style="max-width:1360px;margin:0 auto;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;color:#9a9a9a;margin-bottom:16px;">WHAT I BUILD</div>
+    <h2 style="font-size:clamp(24px,3.2vw,34px);font-weight:800;line-height:1.2;margin:0 0 40px;max-width:460px;letter-spacing:-0.02em;">I work where technology meets complexity.</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:#262626;">
+      <div style="background:#ffffff;color:#111111;padding:22px;"><div style="font-size:15px;font-weight:800;margin-bottom:8px;">Software</div><div style="font-size:12px;color:#5a5a5a;line-height:1.5;">Building products and platforms designed around real user and business problems, not around what's easy to ship.</div></div>
+      <div style="background:#ffffff;color:#111111;padding:22px;"><div style="font-size:15px;font-weight:800;margin-bottom:8px;">Infrastructure</div><div style="font-size:12px;color:#5a5a5a;line-height:1.5;">Designing systems capable of supporting complex operational environments, from logistics to manufacturing to national scale processes.</div></div>
+      <div style="background:#ffffff;color:#111111;padding:22px;"><div style="font-size:15px;font-weight:800;margin-bottom:8px;">Security</div><div style="font-size:12px;color:#5a5a5a;line-height:1.5;">Treating security as an operational and organizational problem, a discipline systems enforce rather than a tool bolted on.</div></div>
+      <div style="background:#ffffff;color:#111111;padding:22px;"><div style="font-size:15px;font-weight:800;margin-bottom:8px;">Companies</div><div style="font-size:12px;color:#5a5a5a;line-height:1.5;">Turning technology and ideas into durable businesses, from Islands Digital to Taxable.ng.</div></div>
+    </div>
+  </div>
+</section>
+
+<section style="max-width:1360px;margin:0 auto;padding:70px 5vw;">
+  <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;color:#8a8a8a;margin-bottom:16px;">CURRENT FOCUS</div>
+  <h2 style="font-size:clamp(24px,3.2vw,34px);font-weight:800;line-height:1.2;margin:0 0 34px;letter-spacing:-0.02em;">What I'm building now.</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:36px;">
+    <div style="border:1px solid #e5e5e5;padding:22px;">
+      <div style="display:flex;justify-content:space-between;margin-bottom:16px;"><span style="font-size:11px;color:#9a9a9a;">01</span><span style="font-size:10px;border:1px solid #111111;padding:3px 8px;font-weight:700;letter-spacing:0.05em;">BUILDING</span></div>
+      <div style="font-size:16px;font-weight:800;margin-bottom:8px;">Taxable.ng</div>
+      <div style="font-size:13px;color:#5a5a5a;line-height:1.6;">Building a tax filing platform for the Nigerian market, designing and shipping the product end to end, from infrastructure to interface.</div>
+    </div>
+    <div style="border:1px solid #e5e5e5;padding:22px;">
+      <div style="display:flex;justify-content:space-between;margin-bottom:16px;"><span style="font-size:11px;color:#9a9a9a;">02</span><span style="font-size:10px;border:1px solid #111111;padding:3px 8px;font-weight:700;letter-spacing:0.05em;">ADVISORY</span></div>
+      <div style="font-size:16px;font-weight:800;margin-bottom:8px;">Advisory &amp; speaking</div>
+      <div style="font-size:13px;color:#5a5a5a;line-height:1.6;">Advising teams working on complex, high stakes systems, helping them make sound decisions where the cost of getting it wrong compounds.</div>
+    </div>
+  </div>
+  <p style="font-size:13px;color:#8a8a8a;line-height:1.6;max-width:640px;margin:0;">Away from the day to day of building, David spends time on the same questions in different forms: advising teams navigating similar constraints, and writing publicly about what the work teaches him. Little of it is separate from the work. Most of it feeds back into it.</p>
+</section>
+
+<dc-import name="Footer" hint-size="100%,480px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      timeline: [
+        { tag: 'BUILDING SYSTEMS', title: 'Industrial operations, at national scale', desc: "Led delivery of the online manufacturing and logistics systems supporting the largest oil and gas operation in Sub-Saharan Africa, software with no room for downtime.", why: "it proved that software could hold up under industrial grade constraints, not just demo well.", color: '#4d4d4d' },
+        { tag: 'SECURITY & ACCESS', title: 'Movement management for high risk sites', desc: "Built SaaS based access control and movement management systems securing large industrial sites, treating security as an operational discipline rather than a bolt on tool.", why: "it shaped a conviction that security is a systems problem, not a checklist.", color: '#4d4d4d' },
+        { tag: 'COMPANY BUILDING', title: 'Founder, Islands Digital', desc: "Founded Islands Digital, a technology company building software and digital infrastructure for organizations operating under real constraints.", why: "it moved the work from delivering systems for others to building a company around that judgment.", color: '#4d4d4d' },
+        { tag: 'CURRENT', title: 'Building Taxable.ng', desc: "Currently building Taxable.ng, Nigeria's first fully digital tax filing platform, designed to simplify compliance without weakening accountability.", why: "it's the same problem in a new form: making a high stakes, regulated system genuinely usable.", color: '#2f5fe0' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

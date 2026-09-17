@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#ffffff;}
+a{color:#2f5fe0;}
+a:hover{color:#1c3fa8;}
+</style>
+</helmet>
+<div style="font-family:'Archivo',sans-serif;background:#ffffff;color:#111111;">
+<dc-import name="Header" active="speaking" hint-size="100%,90px"></dc-import>
+
+<section style="max-width:1360px;margin:0 auto;padding:50px 5vw 70px;background:#fafafa;display:grid;grid-template-columns:minmax(240px,1fr) minmax(240px,1fr);gap:40px;align-items:center;">
+  <div>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;"><span style="width:16px;height:1px;background:#111111;"></span><span style="font-size:11px;font-weight:700;letter-spacing:0.08em;">SPEAKING</span></div>
+    <h1 style="font-size:clamp(28px,4vw,44px);font-weight:800;line-height:1.1;margin:0 0 18px;letter-spacing:-0.02em;">Ideas worth putting in the room.</h1>
+    <p style="font-size:15px;line-height:1.6;color:#5a5a5a;margin:0 0 26px;">David speaks about technology leadership, infrastructure, company building, security and operating complex systems.</p>
+    <a href="./WorkWithMe.dc.html" style="background:#111111;color:#ffffff;padding:14px 26px;font-size:12px;font-weight:700;letter-spacing:0.05em;text-decoration:none;display:inline-block;">INVITE DAVID TO SPEAK →</a>
+  </div>
+  <image-slot id="speaking-hero" shape="rect" style="width:100%;aspect-ratio:4/3;" placeholder="Drop a photo of David speaking"></image-slot>
+</section>
+
+<section style="background:#0a0a0a;color:#ffffff;padding:70px 5vw;">
+  <div style="max-width:1360px;margin:0 auto;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;color:#9a9a9a;margin-bottom:16px;">TOPICS</div>
+    <h2 style="font-size:clamp(24px,3vw,32px);font-weight:800;line-height:1.25;margin:0 0 40px;max-width:760px;letter-spacing:-0.02em;">Six areas drawn directly from work on systems that don't get second chances.</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
+      <sc-for list="{{ topics }}" as="topic" hint-placeholder-count="6">
+        <div style="background:#ffffff;color:#111111;padding:22px;min-height:110px;">
+          <div style="font-size:14px;font-weight:800;color:#c9c9c9;margin-bottom:14px;">{{ topic.num }}</div>
+          <div style="font-size:14px;font-weight:700;line-height:1.4;">{{ topic.label }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section style="max-width:1360px;margin:0 auto;padding:70px 5vw;">
+  <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;color:#8a8a8a;margin-bottom:18px;">AUDIENCE</div>
+  <h2 style="font-size:clamp(26px,3.2vw,34px);font-weight:800;margin:0 0 30px;letter-spacing:-0.02em;">Who these talks are built for.</h2>
+  <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:50px;">
+    <span style="border:1px solid #d8d8d8;border-radius:30px;padding:14px 26px;font-size:14px;">Engineering leaders</span>
+    <span style="border:1px solid #d8d8d8;border-radius:30px;padding:14px 26px;font-size:14px;">Founders</span>
+    <span style="border:1px solid #d8d8d8;border-radius:30px;padding:14px 26px;font-size:14px;">Executives</span>
+    <span style="border:1px solid #d8d8d8;border-radius:30px;padding:14px 26px;font-size:14px;">Technical teams in complex environments</span>
+  </div>
+  <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;color:#8a8a8a;margin-bottom:18px;border-top:1px solid #e5e5e5;padding-top:24px;">OUTCOME</div>
+  <div style="border-left:3px solid #2f5fe0;background:#f7f7f7;padding:22px 26px;max-width:640px;">
+    <p style="font-size:18px;font-weight:700;line-height:1.4;margin:0;">Audiences leave with clearer mental models, fewer abstractions and better questions.</p>
+  </div>
+</section>
+
+<dc-import name="Footer" hint-size="100%,480px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      topics: [
+        { num: '01', label: 'Technical leadership at scale' },
+        { num: '02', label: 'Building software for regulated environments' },
+        { num: '03', label: 'Security as a systems problem' },
+        { num: '04', label: 'Decision-making under operational constraints' },
+        { num: '05', label: 'Founder lessons from building in emerging markets' },
+        { num: '06', label: 'What infrastructure-grade software actually requires' },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
