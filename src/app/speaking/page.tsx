@@ -1,5 +1,17 @@
+import CtaBanner from '@/components/CtaBanner'
+import { site } from '@/lib/site'
+
+const topics = [
+  { num: '01', label: 'Technical leadership at scale' },
+  { num: '02', label: 'Building software for regulated environments' },
+  { num: '03', label: 'Security as a systems problem' },
+  { num: '04', label: 'Decision-making under operational constraints' },
+  { num: '05', label: 'Founder lessons from building in emerging markets' },
+  { num: '06', label: 'What infrastructure-grade software actually requires' },
+]
+
 export const metadata = {
-  title: 'Speaking - David Salami',
+  title: 'Speaking — David Salami',
   description:
     'Speaking to technical leaders about building systems that hold up under real conditions.',
 }
@@ -7,85 +19,86 @@ export const metadata = {
 export default function Speaking() {
   return (
     <main>
-      <section className="bg-tesco-blue text-white">
-        <div className="max-w-4xl mx-auto px-6 py-16">
-          <h1 className="text-5xl font-bold mb-6">Speaking</h1>
-          <p className="text-xl leading-relaxed opacity-95">
-            I speak to technical leaders, founders, and operators about building systems and
-            organizations that hold up under real conditions.
-          </p>
+      <section className="section-y bg-cream">
+        <div className="grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+          <div>
+            <p className="page-label">
+              <span className="h-px w-6 bg-black" />
+              <span className="pl-3">Speaking</span>
+            </p>
+            <h1 className="t-h1 text-[#1a1a1a]">Ideas worth putting in the room.</h1>
+            <p className="t-lead mt-4">
+              David speaks about technology leadership, infrastructure, company building, security,
+              and operating complex systems.
+            </p>
+            <a
+              href={`mailto:${site.email}?subject=${encodeURIComponent('Speaking invitation')}`}
+              className="btn-solid mt-6"
+            >
+              Invite David to Speak →
+            </a>
+          </div>
+          <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg">
+            <img
+              src="/images/speaking.jpg"
+              alt="David Salami speaking"
+              className="absolute left-[-8%] top-0 h-full w-[116%] max-w-none object-cover"
+            />
+          </div>
         </div>
       </section>
 
-      <section className="max-w-4xl mx-auto px-6 py-16">
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6 border-l-4 border-tesco-magenta pl-4">
-            Topics
-          </h2>
-          <ul className="space-y-4 text-lg text-gray-700">
-            <li className="leading-relaxed pl-6 border-l-2 border-gray-200 hover:border-tesco-blue transition-colors">
-              Technical leadership at scale
-            </li>
-            <li className="leading-relaxed pl-6 border-l-2 border-gray-200 hover:border-tesco-blue transition-colors">
-              Building software for regulated environments
-            </li>
-            <li className="leading-relaxed pl-6 border-l-2 border-gray-200 hover:border-tesco-blue transition-colors">
-              Security as a systems problem
-            </li>
-            <li className="leading-relaxed pl-6 border-l-2 border-gray-200 hover:border-tesco-blue transition-colors">
-              Decision-making under operational constraints
-            </li>
-            <li className="leading-relaxed pl-6 border-l-2 border-gray-200 hover:border-tesco-blue transition-colors">
-              Scaling teams without losing judgment
-            </li>
-            <li className="leading-relaxed pl-6 border-l-2 border-gray-200 hover:border-tesco-blue transition-colors">
-              When engineering excellence backfires
-            </li>
-          </ul>
+      <section className="section-y bg-night text-white">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-white/70">Topics</p>
+        <h2 className="t-h2 mt-2 max-w-2xl text-white">
+          Six areas drawn directly from work on systems that don&apos;t get second chances.
+        </h2>
+        <div className="mt-8 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+          {topics.map((topic) => (
+            <article
+              key={topic.num}
+              className="rounded-[5px] border border-black/20 bg-white px-5 py-5 text-black"
+            >
+              <p className="font-mono text-[18px] font-medium tracking-[-0.04em] text-sage">
+                {topic.num}
+              </p>
+              <p className="mt-2 text-[15px] leading-6">{topic.label}</p>
+            </article>
+          ))}
         </div>
+      </section>
 
-        <div className="mb-16 bg-gray-50 p-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6 border-l-4 border-tesco-blue pl-4">
-            Audience
-          </h2>
-          <ul className="space-y-4 text-lg text-gray-700">
-            <li className="leading-relaxed flex items-start">
-              <span className="text-tesco-magenta mr-3 text-2xl">•</span>
-              <span>Engineering leaders</span>
-            </li>
-            <li className="leading-relaxed flex items-start">
-              <span className="text-tesco-magenta mr-3 text-2xl">•</span>
-              <span>Founders</span>
-            </li>
-            <li className="leading-relaxed flex items-start">
-              <span className="text-tesco-magenta mr-3 text-2xl">•</span>
-              <span>Executives</span>
-            </li>
-            <li className="leading-relaxed flex items-start">
-              <span className="text-tesco-magenta mr-3 text-2xl">•</span>
-              <span>Technical teams in complex environments</span>
-            </li>
-          </ul>
+      <section className="section-y bg-white">
+        <p className="t-kicker border-b border-black/20 pb-3">Audience</p>
+        <h2 className="t-h2 mt-5">Who these talks are built for.</h2>
+        <div className="mt-6 flex flex-wrap gap-3">
+          {[
+            'Engineering leaders',
+            'Founders',
+            'Executives',
+            'Technical teams in complex environments',
+          ].map((label) => (
+            <span
+              key={label}
+              className="inline-flex items-center rounded-full border border-black/30 px-5 py-2.5 text-[14px] font-medium"
+            >
+              {label}
+            </span>
+          ))}
         </div>
+      </section>
 
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-6 border-l-4 border-tesco-magenta pl-4">
-            Outcome
-          </h2>
-          <p className="text-lg text-gray-700 leading-relaxed pl-6">
+      <section className="bg-white px-6 pb-12 lg:px-16">
+        <p className="t-kicker border-b border-black/20 pb-3">Outcome</p>
+        <div className="relative mt-6 border-b border-r border-black/10 bg-paper py-6 pl-8 pr-6">
+          <div className="absolute bottom-0 left-0 top-0 w-1 bg-[#102e6b]" />
+          <p className="t-h3 max-w-3xl text-[#111]">
             Audiences leave with clearer mental models, fewer abstractions, and better questions.
           </p>
         </div>
-
-        <div className="bg-tesco-blue text-white p-8">
-          <p className="text-xl leading-relaxed">
-            Contact:{' '}
-            <a href="mailto:hello@davidsalami.com" className="text-white underline decoration-tesco-magenta decoration-2 hover:decoration-4 transition-all">
-              hello@davidsalami.com
-            </a>
-          </p>
-        </div>
       </section>
+
+      <CtaBanner />
     </main>
   )
 }

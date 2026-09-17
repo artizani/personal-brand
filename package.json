@@ -5,14 +5,21 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "pages:build": "next build",
+    "preview": "npx wrangler pages dev out",
+    "deploy": "npx wrangler pages deploy out --project-name=personal-brand",
     "start": "next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "gray-matter": "^4.0.3",
     "next": "^14.2.0",
+    "next-mdx-remote": "^6.0.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "resend": "^6.28.1",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
     "@types/node": "^20",

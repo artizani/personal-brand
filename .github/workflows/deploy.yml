@@ -36,14 +36,25 @@ jobs:
       - name: Run lint
         run: npm run lint
 
-      - name: Build for Cloudflare Pages
-        run: npm run pages:build
+      - name: Build static export
+        run: npm run build
+        env:
+          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
+          NEXT_PUBLIC_EMAIL: ${{ secrets.NEXT_PUBLIC_EMAIL }}
+          NEXT_PUBLIC_PROFILE_EMAIL: ${{ secrets.NEXT_PUBLIC_PROFILE_EMAIL }}
+          NEXT_PUBLIC_STRIPE_PAYMENT_LINK: ${{ secrets.NEXT_PUBLIC_STRIPE_PAYMENT_LINK }}
+          NEXT_PUBLIC_PAYPAL_URL: ${{ secrets.NEXT_PUBLIC_PAYPAL_URL }}
+          NEXT_PUBLIC_CALENDLY_URL: ${{ secrets.NEXT_PUBLIC_CALENDLY_URL }}
+          NEXT_PUBLIC_FORMSPREE_ENDPOINT: ${{ secrets.NEXT_PUBLIC_FORMSPREE_ENDPOINT }}
+          NEXT_PUBLIC_GITHUB_URL: ${{ secrets.NEXT_PUBLIC_GITHUB_URL }}
+          NEXT_PUBLIC_LINKEDIN_URL: ${{ secrets.NEXT_PUBLIC_LINKEDIN_URL }}
+          NEXT_PUBLIC_TWITTER_URL: ${{ secrets.NEXT_PUBLIC_TWITTER_URL }}
+          NEXT_PUBLIC_INSTAGRAM_URL: ${{ secrets.NEXT_PUBLIC_INSTAGRAM_URL }}
 
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/pages-action@v1
+        uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: personal-brand
-          directory: .vercel/output/static
+          command: pages deploy out --project-name=personal-brand
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}

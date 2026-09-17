@@ -1,0 +1,28 @@
+---
+title: The difference between software that demos well and software that survives reality
+description: Most teams optimize for the wrong feedback loops.
+pubDate: 2025-04-02
+tags:
+  - product
+  - operations
+draft: false
+num: "02"
+---
+
+A demo rewards completeness. Reality rewards the boring path: the retry, the reconciliation, the operator who has to explain what happened at 2am without a designer in the call.
+
+Most product organisations are built around the first feedback loop. Stakeholders see a flow. Investors see a narrative. Engineers see a merged pull request. All of that is useful. None of it tells you whether the system will survive contact with a messy market, a partial outage, or a user who does not behave like the happy path.
+
+## Wrong loops, confident teams
+
+Teams get faster at producing the artefacts that get applauded. Screens. Launch posts. Architecture diagrams that look inevitable. Meanwhile the unloved surfaces — audit trails, failure states, support tooling, data that has to stay true after a rollback — stay thin.
+
+That is how you get software that looks finished and is not operable. It can be shown. It cannot be trusted.
+
+## What surviving looks like
+
+Software that survives reality is usually less impressive in a walkthrough. It makes fewer promises. It is explicit about what it does not know. It is designed so that an operator can see the truth of the system without reconstructing it from logs and folklore.
+
+The practical test is simple. When something goes wrong, does the product help the people who have to fix it, or does it hide behind a success screen?
+
+If your only feedback loop is the demo, you will keep shipping theatre. If you instrument the work as it is actually done — including the failures — the product starts to look like infrastructure. That is the point.

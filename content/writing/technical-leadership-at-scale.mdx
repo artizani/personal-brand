@@ -1,0 +1,34 @@
+---
+title: Why most technical leadership fails at scale
+description: Competence doesn't collapse systems. Poor judgment does.
+pubDate: 2025-03-12
+tags:
+  - leadership
+  - systems
+draft: false
+num: "01"
+---
+
+Technical leadership rarely fails because the leader cannot write software. It fails because the organisation starts treating activity as progress, and the leader does not stop it.
+
+At a small scale, competence covers a lot of ground. A strong engineer can still personally inspect the risky paths, rewrite the brittle service, and sit in the incident call. That works until the system is larger than any one person's working memory. Then the job changes. The question is no longer "can I make this work?" It is "what will still work when I am not in the room?"
+
+## The competence trap
+
+Teams promote the person who shipped the last hard thing. That person keeps shipping. The organisation quietly converts them into a bottleneck: every design review, every vendor call, every production scare. Output looks high. The system is actually becoming more dependent on a single judgment.
+
+Scale needs a different kind of competence. You have to make decisions with incomplete information, then install the constraints that keep those decisions from rotting. Architecture is one of those constraints. So is hiring. So is saying no to a roadmap that would look impressive in a board pack and collapse on a Friday night.
+
+## Judgment is the product
+
+Poor judgment at scale is expensive because it compounds. A wrong abstraction does not just slow one team. It becomes the default path for every team that arrives after it. A weak incident culture does not just lengthen one outage. It teaches people that noise is normal.
+
+The leaders who hold up under that pressure do three unglamorous things well:
+
+- They name the real constraint before they name the feature.
+- They design for operators, not for the demo.
+- They refuse tools that substitute for discipline.
+
+None of that photographs well. All of it is what keeps a system alive once it matters.
+
+If you are leading a technical organisation and it still only works because you are personally excellent, you do not have a leadership problem yet. You have a scale problem you have not admitted.

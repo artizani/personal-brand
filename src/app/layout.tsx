@@ -1,29 +1,39 @@
 import type { Metadata } from 'next'
-import { Open_Sans } from 'next/font/google'
+import { Inter, JetBrains_Mono, Sora } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 
-const openSans = Open_Sans({
+const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-open-sans',
+  variable: '--font-inter',
   display: 'swap',
 })
 
+const sora = Sora({
+  subsets: ['latin'],
+  variable: '--font-sora',
+  display: 'swap',
+  weight: ['400', '600', '700'],
+})
+
+const jetbrains = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-jetbrains',
+  display: 'swap',
+  weight: ['400', '500', '700'],
+})
+
 export const metadata: Metadata = {
-  title: 'David Salami - Technology Leader & Founder',
+  title: 'David Salami — Founder & Technology Leader',
   description:
-    'Founder and technology leader working at the intersection of infrastructure, security, and large-scale operations.',
+    'Founder and growth executive building companies that turn complex, real-world markets into scalable products and durable revenue.',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={openSans.variable}>
-      <body className="font-sans antialiased">
+    <html lang="en" className={`${inter.variable} ${sora.variable} ${jetbrains.variable}`}>
+      <body className="font-sans">
         <Navigation />
         {children}
         <Footer />

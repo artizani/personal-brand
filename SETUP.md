@@ -97,6 +97,15 @@ cp .env.example .env.local
 
 Add your environment variables to `.env.local` (not tracked by git).
 
+Payment and booking are wired through public env vars so a static Cloudflare/Next export can still deep-link out:
+
+- `NEXT_PUBLIC_STRIPE_PAYMENT_LINK` — Stripe Payment Link for the advisory hour
+- `NEXT_PUBLIC_PAYPAL_URL` — PayPal.me or checkout URL
+- `NEXT_PUBLIC_CALENDLY_URL` — Calendly event URL (embeds on Work with me)
+- `NEXT_PUBLIC_FORMSPREE_ENDPOINT` — optional form backend; otherwise the contact form opens mail
+
+Writing is a file-based MDX engine. Add an essay at `content/writing/your-slug.mdx` with `title`, `summary`, `date`, `order`, and `num` in the frontmatter. It appears on `/writing` and the homepage automatically.
+
 ### Production (Cloudflare Pages)
 
 Set environment variables in Cloudflare Dashboard:

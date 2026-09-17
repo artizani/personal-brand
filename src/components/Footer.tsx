@@ -1,17 +1,22 @@
+import { site } from '@/lib/site'
+
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="max-w-4xl mx-auto px-6 py-12">
-        <div className="flex flex-col gap-3">
-          <p className="font-bold text-xl">David Salami</p>
-          <p>
-            <a href="mailto:hello@davidsalami.com" className="hover:text-tesco-blue transition-colors">
-              hello@davidsalami.com
-            </a>
-          </p>
-          <p className="mt-4 text-gray-400 text-sm">
-            © {new Date().getFullYear()} David Salami. All rights reserved.
-          </p>
+    <footer className="border-t border-[#747878] bg-paper">
+      <div className="mx-auto flex max-w-site flex-col items-start justify-between gap-3 px-6 py-5 sm:flex-row sm:items-center lg:px-10">
+        <p className="text-[12px] uppercase leading-5 text-sage">
+          David Salami. All rights reserved.
+        </p>
+        <div className="flex gap-5">
+          <a href={site.github} className="text-[13px] uppercase text-sage">
+            Github
+          </a>
+          <a href={site.linkedin} className="text-[13px] uppercase text-sage">
+            Linkedin
+          </a>
+          <a href={`mailto:${site.email}`} className="text-[13px] uppercase text-sage">
+            Email
+          </a>
         </div>
       </div>
     </footer>
