@@ -13,26 +13,26 @@ const milestones = [
   {
     tag: 'BUILDING SYSTEMS',
     title: 'Industrial operations, at national scale',
-    desc: 'Led delivery of the online manufacturing and logistics systems supporting the largest oil & gas operation in Sub-Saharan Africa — software with no room for downtime, built for an environment where the cost of failure is measured in real operations, not metrics.',
-    why: 'Why it mattered — it proved that software could hold up under industrial-grade constraints, not just demo well.',
+    desc: 'Led delivery of the online manufacturing and logistics systems supporting the largest oil & gas operation in Sub-Saharan Africa: software with no room for downtime, built for an environment where the cost of failure is measured in real operations, not metrics.',
+    why: 'Why it mattered: it proved that software could hold up under industrial-grade constraints, not just demo well.',
   },
   {
     tag: 'SECURITY & ACCESS',
     title: 'Movement management for high-risk sites',
-    desc: 'Built SaaS-based access control and movement management systems securing large industrial sites — treating security as an operational discipline rather than a bolt-on tool.',
-    why: 'Why it mattered — it shaped a conviction that security is a systems problem, not a checklist.',
+    desc: 'Built SaaS-based access control and movement management systems securing large industrial sites, treating security as an operational discipline rather than a bolt-on tool.',
+    why: 'Why it mattered: it shaped a conviction that security is a systems problem, not a checklist.',
   },
   {
     tag: 'COMPANY BUILDING',
     title: 'Founder, Islands Digital',
-    desc: 'Founded Islands Digital, a technology company building software and digital infrastructure for organizations operating under real constraints.',
-    why: 'Why it mattered — it moved the work from delivering systems for others to building a company around that judgment.',
+    desc: 'Founded Islands Digital, a technology company building software and digital infrastructure for organisations operating under real constraints.',
+    why: 'Why it mattered: it moved the work from delivering systems for others to building a company around that judgment.',
   },
   {
     tag: 'CURRENT',
     title: 'Building Taxable.ng',
-    desc: 'Currently building Taxable.ng, Nigeria’s first fully digital tax filing platform — designed to simplify compliance for taxpayers without weakening accountability.',
-    why: 'Why it matters — it’s the same problem in a new form: making a high-stakes, regulated system genuinely usable.',
+    desc: 'Currently building Taxable.ng, Nigeria’s first fully digital tax filing platform, designed to simplify compliance for taxpayers without weakening accountability.',
+    why: 'Why it matters: it’s the same problem in a new form, making a high-stakes, regulated system genuinely usable.',
   },
 ]
 
@@ -43,15 +43,15 @@ const pillars = [
   },
   {
     title: 'Infrastructure',
-    desc: 'Designing systems capable of supporting complex operational environments — logistics, manufacturing, and industrial-scale processes.',
+    desc: 'Designing systems capable of supporting complex operational environments: logistics, manufacturing, and industrial-scale processes.',
   },
   {
     title: 'Security',
-    desc: 'Thinking about security as an operational and organizational problem — a discipline systems enforce, not a tool bolted on afterward.',
+    desc: 'Thinking about security as an operational and organisational problem, a discipline systems enforce, not a tool bolted on afterward.',
   },
   {
     title: 'Companies',
-    desc: 'Turning technology and ideas into durable businesses — from Islands Digital to Taxable.ng.',
+    desc: 'Turning technology and ideas into durable businesses, from Islands Digital to Taxable.ng.',
   },
 ]
 
@@ -82,7 +82,7 @@ export default function About() {
 
             <p className="about-hero-description">
               David Salami is a technology leader and founder focused on systems that operate in the
-              real world — where failure has cost, complexity is unavoidable, and constraints are
+              real world, where failure has cost, complexity is unavoidable, and constraints are
               non-negotiable.
             </p>
 
@@ -137,15 +137,14 @@ export default function About() {
           <div className="perspective-grid scroll-reveal" data-delay={100}>
             <div className="perspective-narrative">
               <p className="narrative-lead">
-                David is a technology leader and founder focused on systems that operate in the real
-                world — where failure has cost, complexity is unavoidable, and constraints are
-                non-negotiable.
+                David spends most of his time on systems where failure has real cost, complexity
+                can&rsquo;t be designed away, and the constraints aren&rsquo;t negotiable.
               </p>
               <p className="narrative-body">
                 His work spans infrastructure, security, logistics, and compliance-heavy
-                environments, building software that supports large organizations and critical
+                environments, building software that supports large organisations and critical
                 operations. It sits at the intersection of technology, infrastructure, security,
-                operations, enterprise software, and company building — disciplines he treats as one
+                operations, enterprise software, and company building, disciplines he treats as one
                 continuous problem rather than separate lanes.
               </p>
             </div>
@@ -238,7 +237,7 @@ export default function About() {
               </div>
               <h3 className="building-card-title">Taxable.ng</h3>
               <p className="building-card-desc">
-                Building a tax filing platform for the Nigerian market — designing and shipping the
+                Building a tax filing platform for the Nigerian market, designing and shipping the
                 product end to end, from infrastructure to interface.
               </p>
               <div className="building-card-footer">
@@ -258,7 +257,7 @@ export default function About() {
               </div>
               <h3 className="building-card-title">Advisory &amp; Investing</h3>
               <p className="building-card-desc">
-                Advising teams working on complex, high-stakes systems — helping them make sound
+                Advising teams working on complex, high-stakes systems, helping them make sound
                 decisions where the cost of getting it wrong compounds.
               </p>
               <div className="building-card-footer">
@@ -286,8 +285,8 @@ export default function About() {
           <div className="quote-callout scroll-reveal" data-delay={400}>
             <blockquote className="pull-quote">
               &ldquo;Away from the day-to-day of building, David spends time on the same questions in
-              different forms — advising teams navigating similar constraints, and writing publicly
-              about what the work teaches him. Little of it is separate from the work; most of it
+              different forms: advising teams navigating similar constraints, and writing publicly
+              about what the work teaches him. Little of it is separate from the work. Most of it
               feeds back into it.&rdquo;
             </blockquote>
           </div>

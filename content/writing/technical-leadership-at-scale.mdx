@@ -9,26 +9,22 @@ draft: false
 num: "01"
 ---
 
-Technical leadership rarely fails because the leader cannot write software. It fails because the organisation starts treating activity as progress, and the leader does not stop it.
+Technical leadership rarely fails because the leader can't write software anymore. It fails because the organisation starts treating activity as progress, and nobody in charge stops it.
 
-At a small scale, competence covers a lot of ground. A strong engineer can still personally inspect the risky paths, rewrite the brittle service, and sit in the incident call. That works until the system is larger than any one person's working memory. Then the job changes. The question is no longer "can I make this work?" It is "what will still work when I am not in the room?"
+At a small scale, competence covers a lot of ground. A strong engineer can still personally inspect the risky paths, rewrite the brittle service, and sit in on the incident call. That works right up until the system outgrows any one person's working memory. Then the job changes underneath you. The question stops being "can I make this work?" and becomes "what still works when I'm not in the room?"
 
 ## The competence trap
 
-Teams promote the person who shipped the last hard thing. That person keeps shipping. The organisation quietly converts them into a bottleneck: every design review, every vendor call, every production scare. Output looks high. The system is actually becoming more dependent on a single judgment.
+Teams promote the person who shipped the last hard thing, and that person keeps shipping. Quietly, the organisation turns them into a bottleneck: every design review, every vendor call, every production scare runs through them. Output looks high. What's actually happening is the system becoming more dependent on one person's judgment, not less.
 
-Scale needs a different kind of competence. You have to make decisions with incomplete information, then install the constraints that keep those decisions from rotting. Architecture is one of those constraints. So is hiring. So is saying no to a roadmap that would look impressive in a board pack and collapse on a Friday night.
+Scale asks for a different kind of competence. You have to make decisions with incomplete information, and then put constraints in place that stop those decisions from rotting over time. Architecture is one of those constraints. So is hiring. So is saying no to a roadmap that would look great in a board pack and fall apart on a Friday night.
 
 ## Judgment is the product
 
-Poor judgment at scale is expensive because it compounds. A wrong abstraction does not just slow one team. It becomes the default path for every team that arrives after it. A weak incident culture does not just lengthen one outage. It teaches people that noise is normal.
+Poor judgment is expensive at scale because it compounds. A wrong abstraction doesn't just slow one team down, it becomes the default path every team after it inherits. A weak incident culture doesn't just make one outage longer, it teaches everyone that noise is normal.
 
-The leaders who hold up under that pressure do three unglamorous things well:
+The leaders who hold up under that kind of pressure tend to do three unglamorous things well. They name the real constraint before they name the feature. They design for the operator, not the demo. And they refuse to let a tool stand in for actual discipline.
 
-- They name the real constraint before they name the feature.
-- They design for operators, not for the demo.
-- They refuse tools that substitute for discipline.
+None of that photographs well for a case study. All of it is what keeps a system alive once it actually matters.
 
-None of that photographs well. All of it is what keeps a system alive once it matters.
-
-If you are leading a technical organisation and it still only works because you are personally excellent, you do not have a leadership problem yet. You have a scale problem you have not admitted.
+If you're leading a technical organisation and it still only works because you're personally excellent, you don't have a leadership problem yet. You have a scale problem you haven't admitted to yourself.

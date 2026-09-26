@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const talks = [
   {
     title: 'Technical leadership at scale',
-    desc: 'Navigating organizational complexity, aligning engineering output with commercial survival, and leading high-context autonomous teams under real pressure.',
+    desc: 'Navigating organisational complexity, aligning engineering output with commercial survival, and leading high-context autonomous teams under real pressure.',
   },
   {
     title: 'Building software for constrained environments',
@@ -56,7 +56,7 @@ export default function Speaking() {
                 href={`mailto:${site.email}?subject=${encodeURIComponent('Speaking invitation')}`}
                 className="btn btn-primary btn-speak"
               >
-                <span>INVITE David TO SPEAK</span>
+                <span>INVITE DAVID TO SPEAK</span>
                 <svg
                   className="btn-arrow"
                   width="14"

@@ -61,12 +61,12 @@ export default function Work() {
             <div className="sessions-narrative">
               <h3 className="session-subtitle">60 minutes, remote, one problem at a time.</h3>
               <p className="session-desc-lead">
-                We focus on one specific bottleneck: architecture review, organizational design,
+                We focus on one specific bottleneck: architecture review, organisational design,
                 vendor selection, operational strategy, or technical hiring.
               </p>
               <p className="session-desc-body">
                 You receive direct guidance based on systems that have operated at scale in complex
-                environments. No frameworks, no theory — practical direction you can act on
+                environments. No frameworks, no theory, just practical direction you can act on
                 immediately.
               </p>
             </div>
@@ -120,7 +120,7 @@ export default function Work() {
           <div className="booking-cta-block scroll-reveal" data-delay={200}>
             <h3 className="booking-cta-title">BOOK A SESSION</h3>
             <p className="booking-cta-desc">
-              We focus on one problem: technical architecture decisions, organizational design,
+              We focus on one problem: technical architecture decisions, organisational design,
               vendor evaluation, or security and compliance strategy. {sessionPrice} per hour, paid
               in advance.
             </p>

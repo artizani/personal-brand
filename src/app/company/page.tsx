@@ -26,7 +26,7 @@ const brands = [
 
 const principles = [
   'Start with constraints, not features.',
-  'Optimize for reliability before growth.',
+  'Optimise for reliability before growth.',
   'Distribution is an architectural decision, not a marketing add-on.',
   'Software is operational leverage, not the business itself.',
 ]
@@ -44,7 +44,7 @@ export default function Company() {
               &amp; Ventures.
             </h1>
             <p className="company-hero-desc">
-              I build and advise companies focused on infrastructure-grade software — systems that
+              I build and advise companies focused on infrastructure-grade software: systems that
               must function reliably in complex, regulated, or high-risk environments.
             </p>
           </div>
@@ -176,7 +176,7 @@ export default function Company() {
                 <h3 className="system-case-headline">Industrial operations, at national scale</h3>
                 <p className="system-case-desc">
                   Led delivery of the online manufacturing and logistics systems supporting the
-                  largest oil &amp; gas operation in Sub-Saharan Africa — software with no room for
+                  largest oil &amp; gas operation in Sub-Saharan Africa: software with no room for
                   downtime, built for an environment where the cost of failure is measured in real
                   operations, not metrics.
                 </p>
@@ -198,7 +198,7 @@ export default function Company() {
                 <h3 className="system-case-headline">Movement management for high-risk sites</h3>
                 <p className="system-case-desc">
                   Built SaaS-based access control and movement management systems securing large
-                  industrial sites — treating security as an operational discipline rather than a
+                  industrial sites, treating security as an operational discipline rather than a
                   bolt-on tool.
                 </p>
               </div>

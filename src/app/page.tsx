@@ -49,14 +49,14 @@ const ventures = [
   {
     name: 'Islands Digital',
     role: 'Founder',
-    body: 'A technology company building software and digital infrastructure — including manufacturing and logistics systems for large-scale industrial operations, and access control and movement management platforms for high-risk sites.',
+    body: 'A technology company building software and digital infrastructure, including manufacturing and logistics systems for large-scale industrial operations, and access control and movement management platforms for high-risk sites.',
     href: 'https://www.islands.digital/',
     cta: 'Visit site',
   },
   {
     name: 'Taxable.ng',
     role: 'Founder & Builder',
-    body: 'Nigeria’s first fully digital tax filing platform — built to simplify compliance for taxpayers without weakening accountability.',
+    body: 'Nigeria’s first fully digital tax filing platform, built to simplify compliance for taxpayers without weakening accountability.',
     href: 'https://www.taxable.ng/',
     cta: 'Visit site',
   },
@@ -92,7 +92,7 @@ const stakes = [
     num: '03',
     badge: 'FINTECH',
     title: 'Taxable.ng',
-    body: 'Spearheaded product design and technical architecture for a specialized taxation compliance platform aimed at SME ecosystems in emerging markets.',
+    body: 'Spearheaded product design and technical architecture for a specialised taxation compliance platform aimed at SME ecosystems in emerging markets.',
     href: 'https://www.taxable.ng',
     cta: 'View Website',
     label: 'Learn more about Taxable.ng',
@@ -155,8 +155,8 @@ export default function Home() {
             </h1>
 
             <p className="hero-description">
-              I work at the intersection of technology, infrastructure, regulation, and
-              growth—turning difficult market problems into products and businesses built to scale.
+              I work at the intersection of technology, infrastructure, regulation, and growth,
+              turning difficult market problems into products and businesses built to scale.
             </p>
 
             <div className="hero-actions">

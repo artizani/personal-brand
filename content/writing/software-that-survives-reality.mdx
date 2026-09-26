@@ -1,6 +1,6 @@
 ---
 title: The difference between software that demos well and software that survives reality
-description: Most teams optimize for the wrong feedback loops.
+description: Most teams optimise for the wrong feedback loops.
 pubDate: 2025-04-02
 tags:
   - product
@@ -9,20 +9,20 @@ draft: false
 num: "02"
 ---
 
-A demo rewards completeness. Reality rewards the boring path: the retry, the reconciliation, the operator who has to explain what happened at 2am without a designer in the call.
+A demo rewards completeness. Reality rewards something more boring: the retry, the reconciliation, the operator who has to explain what happened at 2am with no designer on the call.
 
-Most product organisations are built around the first feedback loop. Stakeholders see a flow. Investors see a narrative. Engineers see a merged pull request. All of that is useful. None of it tells you whether the system will survive contact with a messy market, a partial outage, or a user who does not behave like the happy path.
+Most product organisations are still built around that first kind of feedback. Stakeholders see a flow working end to end. Investors see a narrative they can repeat. Engineers see a pull request merged cleanly. None of that is wasted, exactly, but none of it tells you whether the system will survive a messy market, a partial outage, or a user who simply doesn't behave the way the happy path assumes.
 
 ## Wrong loops, confident teams
 
-Teams get faster at producing the artefacts that get applauded. Screens. Launch posts. Architecture diagrams that look inevitable. Meanwhile the unloved surfaces — audit trails, failure states, support tooling, data that has to stay true after a rollback — stay thin.
+Teams get very good, very fast, at producing the artefacts that earn applause: screens, launch posts, architecture diagrams that look inevitable in hindsight. What stays thin are the surfaces nobody claps for. Audit trails. Failure states. Support tooling. The data that still has to be true after a rollback.
 
-That is how you get software that looks finished and is not operable. It can be shown. It cannot be trusted.
+That's how you end up with software that looks finished but isn't actually operable. It can be demoed. It can't be trusted.
 
 ## What surviving looks like
 
-Software that survives reality is usually less impressive in a walkthrough. It makes fewer promises. It is explicit about what it does not know. It is designed so that an operator can see the truth of the system without reconstructing it from logs and folklore.
+Software built to survive reality is usually less impressive to watch. It makes fewer promises up front. It's honest about what it doesn't know yet. And it's built so an operator can see what the system is actually doing, rather than reconstructing the truth from logs and institutional memory.
 
-The practical test is simple. When something goes wrong, does the product help the people who have to fix it, or does it hide behind a success screen?
+There's a simple test for this. When something breaks, does the product help the person who has to fix it, or does it just hide behind a success screen and hope nobody looks too closely?
 
-If your only feedback loop is the demo, you will keep shipping theatre. If you instrument the work as it is actually done — including the failures — the product starts to look like infrastructure. That is the point.
+If the demo is your only feedback loop, you'll keep shipping theatre. Instrument the work as it's actually done, including the parts that fail, and the product starts behaving less like a pitch and more like infrastructure. That's the whole point.
