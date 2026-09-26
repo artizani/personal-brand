@@ -1,230 +1,383 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
-import BrandLogos from '@/components/BrandLogos'
-import CtaBanner from '@/components/CtaBanner'
+import ExternalLink from '@/components/ExternalLink'
+import FooterCta from '@/components/FooterCta'
 import { getPosts } from '@/lib/posts'
 import { site } from '@/lib/site'
 
-const companies = [
+export const metadata: Metadata = {
+  title: 'David Salami — Founder & Growth Executive',
+  description:
+    'Founder & growth executive building companies that turn complex, real-world markets into scalable products & durable revenue.',
+}
+
+const brands = [
+  { src: 'nigeria-revenue-service.svg', name: 'Nigeria Revenue Service', size: 'brand-img-wide' },
+  { src: 'dangote.svg', name: 'Dangote Group', size: '' },
+  { src: 'bank-of-scotland.svg', name: 'Bank of Scotland', size: 'brand-img-wide' },
+  { src: 'microsoft.svg', name: 'Microsoft', size: 'brand-img-wide' },
+  { src: 'liberty-mutual.svg', name: 'Liberty Mutual', size: '' },
+  { src: 'hmrc.svg', name: 'HM Revenue & Customs', size: 'brand-img-wide' },
+  { src: 'citibank.svg', name: 'Citibank', size: '' },
+  { src: 'lloyds-bank.svg', name: 'Lloyds Bank', size: 'brand-img-wide' },
+  { src: 'aci-worldwide.svg', name: 'ACI Universal Payments', size: 'brand-img-wide' },
+  { src: 'vocalink-mastercard.svg', name: 'Vocalink Mastercard', size: 'brand-img-wide' },
+  { src: 'financial-times.svg', name: 'Financial Times', size: 'brand-img-tall' },
+  { src: 'domestic-and-general.svg', name: 'Domestic & General', size: 'brand-img-wide' },
+  { src: 'intelligent-finance.svg', name: 'Intelligent Finance', size: '' },
+  { src: 'abn-amro.svg', name: 'ABN AMRO', size: 'brand-img-wide' },
+  { src: 'natwest-group.svg', name: 'NatWest Group', size: 'brand-img-wide' },
+]
+
+const glance = [
+  { label: 'FOUNDER', value: 'Islands Digital' },
+  { label: 'CURRENTLY BUILDING', value: 'Taxable.ng' },
+  {
+    label: 'FOCUS',
+    value: (
+      <>
+        Technology ·<br />
+        Infrastructure ·<br />
+        Security · Operations
+      </>
+    ),
+  },
+  { label: 'MARKETS', value: 'Nigeria · Sub-Saharan Africa' },
+]
+
+const ventures = [
   {
     name: 'Islands Digital',
     role: 'Founder',
-    body: 'A technology company building software and digital infrastructure, including manufacturing and logistics systems for large scale industrial operations, and access control and movement management platforms for high risk sites.',
+    body: 'A technology company building software and digital infrastructure — including manufacturing and logistics systems for large-scale industrial operations, and access control and movement management platforms for high-risk sites.',
+    href: 'https://www.islands.digital/',
+    cta: 'Visit site',
   },
   {
     name: 'Taxable.ng',
-    role: 'Founder / Builder',
-    body: "Nigeria's first fully digital tax filing platform. Built to simplify compliance for taxpayers without weakening accountability.",
+    role: 'Founder & Builder',
+    body: 'Nigeria’s first fully digital tax filing platform — built to simplify compliance for taxpayers without weakening accountability.',
+    href: 'https://www.taxable.ng/',
+    cta: 'Visit site',
   },
   {
     name: 'Truss.ng',
-    role: 'Founder / Builder',
-    body: 'The non custodial reliability layer for African payment rails. We hold the record, reconcile against settlement truth and surface what silently fails, without ever touching your money.',
+    role: 'Founder & Builder',
+    body: 'The non-custodial reliability layer for African payment rails. We hold the record, reconcile against settlement truth, and surface what silently fails, without ever touching your money.',
+    href: 'https://www.truss.ng/',
+    cta: 'Visit Website',
   },
 ]
 
 const stakes = [
   {
     num: '01',
-    tag: 'Company',
+    badge: 'VENTURE',
     title: 'Founder, Islands Digital',
     body: 'Built and scaled a digital product agency focused on systems engineering and high-fidelity interfaces. Led a distributed team delivering infrastructure solutions for enterprise clients.',
+    href: 'https://www.islands.digital/',
+    cta: 'Explore',
+    label: 'Explore Islands Digital',
   },
   {
     num: '02',
-    tag: 'Infrastructure',
+    badge: 'SCALE-UP',
     title: 'Online manufacturing & logistics systems',
-    body: 'Architected end to end operational software for distributed manufacturing. Replaced legacy monolithic structures with micro services, improving throughput by 40%.',
+    body: 'Architected end-to-end operational software for distributed manufacturing. Replaced legacy monolithic structures with micro-services, improving throughput by 40%.',
+    href: '#contact',
+    cta: 'Read architecture note',
+    label: 'Ask about the manufacturing systems architecture',
   },
   {
     num: '03',
-    tag: 'Product',
+    badge: 'FINTECH',
     title: 'Taxable.ng',
-    body: 'Spearheaded product design and technical architecture for a tax compliance platform built for SME ecosystems in emerging markets.',
+    body: 'Spearheaded product design and technical architecture for a specialized taxation compliance platform aimed at SME ecosystems in emerging markets.',
+    href: 'https://www.taxable.ng',
+    cta: 'View Website',
+    label: 'Learn more about Taxable.ng',
   },
 ]
 
 export default function Home() {
-  const posts = getPosts()
+  const posts = getPosts().slice(0, 5)
 
   return (
-    <main>
-      <section className="bg-cream px-6 pb-12 pt-8 lg:px-16 lg:pb-14 lg:pt-10">
-        <div className="mx-auto grid max-w-site items-start gap-10 lg:grid-cols-[240px_1fr] lg:gap-14">
-          <aside className="flex flex-col gap-4">
-            <div className="flex items-center gap-3">
-              <div className="relative size-16 shrink-0 overflow-hidden rounded-full">
-                <img
-                  src="/images/avatar.png"
-                  alt="David Salami"
-                  className="absolute inset-0 size-full object-cover"
-                />
+    <main id="main" className="xp">
+      <section className="hero-section" id="hero">
+        <div className="container hero-grid">
+          <aside className="hero-sidebar scroll-reveal" data-delay={0}>
+            <div className="profile-card">
+              <div className="profile-header">
+                <div className="avatar-wrapper">
+                  <img
+                    src="/executive/mr-david.png"
+                    alt="David Salami"
+                    className="avatar-img"
+                    width={200}
+                    height={200}
+                    fetchPriority="high"
+                  />
+                  <span className="online-indicator" title="Active & Available" />
+                </div>
+                <div className="profile-title">
+                  <h3 className="profile-name">David Salami</h3>
+                  <span className="profile-role">Founder / Operator</span>
+                </div>
               </div>
-              <div>
-                <p className="text-[16px] font-semibold leading-5 text-body">David Salami</p>
-                <p className="mt-1 text-[13px] leading-4 text-muted">CEO, Founder</p>
-                <div className="mt-2 flex gap-2">
-                  <a href={site.twitter} className="relative block size-4" aria-label="X">
-                    <img src="/images/icon-social-1.svg" alt="" className="absolute inset-0 size-4" />
-                  </a>
-                  <a href={site.instagram} className="relative block size-4" aria-label="Instagram">
-                    <img src="/images/icon-social-2.svg" alt="" className="absolute inset-0 size-4" />
-                  </a>
-                  <a href={site.linkedin} className="relative block size-4" aria-label="LinkedIn">
-                    <img src="/images/icon-social-3.svg" alt="" className="absolute inset-0 size-4" />
+
+              <div className="profile-divider" />
+
+              <div className="profile-meta-list">
+                <div className="meta-item">
+                  <span className="meta-label">ROLE</span>
+                  <span className="meta-value">Founder &amp; Technology Leader</span>
+                </div>
+                <div className="meta-item">
+                  <span className="meta-label">FOCUS</span>
+                  <span className="meta-value">Infrastructure · Security · Operations</span>
+                </div>
+                <div className="meta-item">
+                  <span className="meta-label">CONTACT</span>
+                  <a href={`mailto:${site.profileEmail}`} className="meta-value">
+                    {site.profileEmail}
                   </a>
                 </div>
               </div>
             </div>
-            <dl className="max-w-[240px]">
-              <div className="border-t border-gray-200 py-3">
-                <dt className="t-kicker">Role</dt>
-                <dd className="mt-1.5 text-[14px] leading-5">Founder &amp; Technology Leader</dd>
-              </div>
-              <div className="border-t border-gray-200 py-3">
-                <dt className="t-kicker">Focus</dt>
-                <dd className="mt-1.5 text-[14px] leading-5">Infrastructure · Security · Operations</dd>
-              </div>
-              <div className="border-t border-gray-200 py-3">
-                <dt className="t-kicker">Contact</dt>
-                <dd className="mt-1.5">
-                  <a href={`mailto:${site.profileEmail}`} className="text-[14px] leading-5">
-                    {site.profileEmail}
-                  </a>
-                </dd>
-              </div>
-            </dl>
           </aside>
 
-          <div>
-            <h1 className="t-h1 max-w-[42rem] text-black">
-              <span className="t-chip">Founder</span>
-              {' '}
-              &amp; growth executive building companies that turn complex, real-world markets into
-              scalable products &amp; durable revenue.
+          <div className="hero-content scroll-reveal" data-delay={150}>
+            <h1 className="hero-headline">
+              <span className="hero-badge">Founder</span> &amp; growth executive building companies
+              that turn complex, real-world markets into{' '}
+              <strong className="text-highlight">scalable products &amp; durable revenue.</strong>
             </h1>
-            <p className="t-lead mt-5">
+
+            <p className="hero-description">
               I work at the intersection of technology, infrastructure, regulation, and
               growth—turning difficult market problems into products and businesses built to scale.
             </p>
-            <div className="mt-7 flex flex-wrap items-center gap-3">
-              <Link href="/work/" className="btn-solid">
-                Work with me →
+
+            <div className="hero-actions">
+              <Link href="/work/" className="btn btn-primary">
+                <span>WORK WITH ME</span>
+                <svg
+                  className="btn-arrow"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M1 7H13M13 7L7.5 1.5M13 7L7.5 12.5"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
               </Link>
-              <Link href="/about/" className="btn-outline">
-                About David
+              <Link href="/about/" className="btn btn-secondary">
+                ABOUT David
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="section-y bg-white">
-        <p className="t-kicker">At a glance</p>
-        <h2 className="t-h2 mt-2 text-ink">Brands I&apos;ve worked with</h2>
-        <div className="mt-7">
-          <BrandLogos />
-        </div>
-      </section>
-
-      <section className="section-y bg-night text-white">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-white/70">At a glance</p>
-        <h2 className="t-h2 mt-2 text-white">
-          Built for scale<span className="text-gold">.</span>
-        </h2>
-        <div className="mt-6 grid border-t border-white/30 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            ['Founder', 'Islands Digital'],
-            ['Currently building', 'Taxable.ng'],
-            ['Focus', 'Technology · Infrastructure · Security · Operations'],
-            ['Markets', 'Nigeria · Sub-Saharan Africa'],
-          ].map(([label, value], i) => (
-            <div
-              key={label}
-              className={`border-white/30 py-6 ${i < 3 ? 'lg:border-r lg:pr-6' : ''} ${
-                i > 0 ? 'lg:pl-6' : ''
-              }`}
-            >
-              <p className="text-[11px] uppercase tracking-[1.2px] text-white/70">{label}</p>
-              <p className="mt-1.5 text-[15px] leading-6">{value}</p>
+      <section className="brands-section" id="about">
+        <div className="container">
+          <div className="brands-header scroll-reveal">
+            <div className="eyebrow-dots" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
             </div>
-          ))}
+            <h2 className="brands-title">Brands I&rsquo;ve worked with</h2>
+          </div>
+
+          <div className="brands-marquee-wrapper scroll-reveal" data-delay={100}>
+            <div className="brands-marquee-track">
+              {brands.map((brand) => (
+                <div key={brand.src} className="brands-marquee-item" title={brand.name}>
+                  <img
+                    src={`/executive/brands/${brand.src}`}
+                    alt={brand.name}
+                    className={`brands-marquee-img ${brand.size}`.trim()}
+                  />
+                </div>
+              ))}
+              {brands.map((brand) => (
+                <div key={`dup-${brand.src}`} className="brands-marquee-item" aria-hidden="true">
+                  <img
+                    src={`/executive/brands/${brand.src}`}
+                    alt=""
+                    className={`brands-marquee-img ${brand.size}`.trim()}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="section-y bg-white">
-        <h2 className="t-h2 max-w-xl text-black">Building beyond the idea.</h2>
-        <p className="t-lead mt-3">
-          I build companies around problems where technology can create structural advantage.
-        </p>
-        <div className="mt-8">
-          {companies.map((c) => (
-            <article
-              key={c.name}
-              className="grid gap-3 border-b border-gray-300 py-6 lg:grid-cols-12 lg:gap-8 lg:items-start"
-            >
-              <div className="lg:col-span-3">
-                <h3 className="t-h3">{c.name}</h3>
-                <p className="mt-1 text-[11px] uppercase tracking-[1.2px] text-sage">{c.role}</p>
+      <section className="scale-section dark-theme" id="scale">
+        <div className="container">
+          <div className="scale-header scroll-reveal">
+            <span className="scale-eyebrow">AT A GLANCE</span>
+            <h2 className="scale-title">
+              Built for scale<span className="scale-amber-square" aria-hidden="true" />
+            </h2>
+          </div>
+
+          <div className="scale-glance-grid scroll-reveal" data-delay={100}>
+            {glance.map((item) => (
+              <div key={item.label} className="scale-glance-col">
+                <span className="scale-glance-label">{item.label}</span>
+                <div className="scale-glance-val">{item.value}</div>
               </div>
-              <p className="text-[14px] leading-6 text-sage lg:col-span-6">{c.body}</p>
-              <Link href="/company/" className="text-[13px] lg:col-span-3 lg:text-right">
-                Explore the work →
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="ventures-section" id="ventures">
+        <div className="container">
+          <div className="ventures-header scroll-reveal">
+            <h2 className="section-title">Building beyond the idea.</h2>
+            <p className="section-subtitle">
+              A track record of taking complex systems from inception to scale across emerging
+              markets.
+            </p>
+          </div>
+
+          <div className="ventures-list">
+            {ventures.map((venture, i) => (
+              <div key={venture.name} className="venture-row scroll-reveal" data-delay={(i + 1) * 100}>
+                <div className="venture-col-company">
+                  <h3 className="venture-name">{venture.name}</h3>
+                  <span className="venture-role">{venture.role}</span>
+                </div>
+                <div className="venture-col-desc">
+                  <p>{venture.body}</p>
+                </div>
+                <div className="venture-col-link">
+                  <ExternalLink href={venture.href} className="venture-link">
+                    <span>{venture.cta}</span>
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                      <path
+                        d="M2.5 9.5L9.5 2.5M9.5 2.5H4.5M9.5 2.5V7.5"
+                        stroke="currentColor"
+                        strokeWidth="1.6"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </ExternalLink>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="stakes-section dark-theme" id="systems">
+        <div className="container">
+          <div className="stakes-header scroll-reveal">
+            <span className="section-tag-mono">PROOF //</span>
+            <h2 className="stakes-title">Built where the stakes are high.</h2>
+          </div>
+
+          <div className="stakes-grid">
+            {stakes.map((card, i) => {
+              const content = (
+                <>
+                  <span>{card.cta}</span>
+                  <span className="arrow-circle" aria-hidden="true">
+                    →
+                  </span>
+                </>
+              )
+              return (
+                <article key={card.num} className="stake-card scroll-reveal" data-delay={(i + 1) * 100}>
+                  <div className="stake-card-top">
+                    <span className="card-num-mono">{card.num}</span>
+                    <span className="card-badge">{card.badge}</span>
+                  </div>
+                  <h3 className="stake-card-title">{card.title}</h3>
+                  <p className="stake-card-text">{card.body}</p>
+                  <div className="stake-card-footer">
+                    {card.href.startsWith('#') ? (
+                      <a href={card.href} className="card-arrow-link" aria-label={card.label}>
+                        {content}
+                      </a>
+                    ) : (
+                      <ExternalLink href={card.href} className="card-arrow-link" aria-label={card.label}>
+                        {content}
+                      </ExternalLink>
+                    )}
+                  </div>
+                </article>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="writing-section" id="writing">
+        <div className="container">
+          <div className="writing-header scroll-reveal">
+            <span className="section-tag-mono">ESSAYS &amp; IDEAS</span>
+            <h2 className="writing-title">
+              Selected writing on building and leading systems that don&rsquo;t get second chances.
+            </h2>
+          </div>
+
+          <div className="writing-grid">
+            {posts.map((post, i) => (
+              <Link
+                key={post.slug}
+                href={`/writing/${post.slug}/`}
+                className="essay-card scroll-reveal"
+                data-delay={(i + 1) * 100}
+              >
+                <span className="essay-num">{post.num ?? String(i + 1).padStart(2, '0')}</span>
+                <h3 className="essay-title">{post.title}</h3>
+                <p className="essay-desc">{post.description}</p>
+                <div className="essay-meta">
+                  <span className="essay-time">{post.readingMinutes} min read</span>
+                  <span className="essay-arrow" aria-hidden="true">
+                    ↗
+                  </span>
+                </div>
               </Link>
-            </article>
-          ))}
-        </div>
-      </section>
+            ))}
 
-      <section className="section-y bg-night text-white">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-white/70">Proof</p>
-        <h2 className="t-h2 mt-2 max-w-lg text-white">Built where the stakes are high.</h2>
-        <div className="mt-8 grid gap-4 lg:grid-cols-3">
-          {stakes.map((card) => (
-            <article key={card.num} className="flex flex-col bg-paper p-6 text-black">
-              <div className="flex items-start justify-between">
-                <span className="font-mono text-[18px] font-bold text-sage">{card.num}</span>
-                <span className="border border-black px-2 py-0.5 font-mono text-[10px] uppercase tracking-[1.2px]">
-                  {card.tag}
-                </span>
+            <Link
+              href="/writing/"
+              className="essay-card action-card scroll-reveal"
+              data-delay={(posts.length + 1) * 100}
+            >
+              <div className="action-card-content">
+                <span className="action-card-tag">ARCHIVE</span>
+                <h3 className="action-card-title">VIEW ALL</h3>
+                <p className="action-card-sub">
+                  Read all essays, architectural blueprints &amp; field notes
+                </p>
               </div>
-              <h3 className="t-h3 mt-5">{card.title}</h3>
-              <p className="mt-2 text-[14px] leading-6 text-sage">{card.body}</p>
-            </article>
-          ))}
+              <div className="action-card-btn" aria-hidden="true">
+                <span className="action-arrow-circle">→</span>
+              </div>
+            </Link>
+          </div>
         </div>
       </section>
 
-      <section className="section-y bg-cream">
-        <p className="t-kicker">How I think</p>
-        <h2 className="t-h2 mt-2 max-w-xl">
-          Selected writing on building and leading systems that don&apos;t get second chances.
-        </h2>
-        <div className="mt-8 grid gap-8 md:grid-cols-2">
-          {posts.slice(0, 4).map((post) => (
-            <article key={post.slug}>
-              <p className="font-mono text-[14px] text-gray-300">{post.num}</p>
-              <h3 className="t-h3 mt-1">
-                <Link href={`/writing/${post.slug}/`}>{post.title}</Link>
-              </h3>
-              <p className="mt-1.5 text-[14px] text-muted">{post.description}</p>
-            </article>
-          ))}
-          <Link
-            href="/writing/"
-            className="flex min-h-[88px] flex-col justify-between bg-night p-5 text-white md:col-start-2"
-          >
-            <span className="flex items-center justify-between">
-              <span className="text-[13px] font-extrabold tracking-[0.04em]">View all</span>
-              <span className="relative flex size-7 items-center justify-center rounded-full border border-white">
-                <img src="/images/icon-arrow.svg" alt="" width={14} height={14} className="invert" />
-              </span>
-            </span>
-            <span className="text-[12px] text-[#9a9a9a]">More on how I work.</span>
-          </Link>
-        </div>
-      </section>
-
-      <CtaBanner />
+      <FooterCta />
     </main>
   )
 }

@@ -1,3 +1,4 @@
+import ExternalLink from '@/components/ExternalLink'
 import { site } from '@/lib/site'
 
 function embedSrc(url: string) {
@@ -29,18 +30,14 @@ export default function CalendlyEmbed() {
         <p className="t-h3 max-w-xl">
           Sessions are scheduled directly — pick a time that works for you.
         </p>
-        <a
-          href={site.calendly}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-solid"
-        >
+        <ExternalLink href={site.calendly} className="btn-solid">
           Book a Session →
-        </a>
+        </ExternalLink>
       </div>
       <iframe
         title="Book a Calendly session"
         src={embedSrc(site.calendly)}
+        loading="lazy"
         className="h-[680px] w-full border-t border-black/10"
       />
     </div>

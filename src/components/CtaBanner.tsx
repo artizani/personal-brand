@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import ExternalLink from '@/components/ExternalLink'
 import { site } from '@/lib/site'
 
 const pills = [
@@ -15,30 +16,37 @@ export default function CtaBanner() {
       <div className="pointer-events-none absolute bottom-0 right-10 top-16 w-40 border-l border-white/10 opacity-30" />
 
       <div className="relative z-10 max-w-xl">
-        <a href={`mailto:${site.email}`} className="text-[14px] font-light text-[#e8ede5]/90 underline">
+        <a
+          href={`mailto:${site.email}`}
+          className="text-[14px] font-light text-[#e8ede5]/90 underline transition-colors hover:text-white focus-visible:ring-white focus-visible:ring-offset-black"
+        >
           {site.email}
         </a>
         <h2 className="t-h2 mt-3 text-white">For advisory, speaking, or collaboration.</h2>
-        <p className="mt-4 max-w-lg text-[15px] leading-6 text-white/85">
-          I&apos;m open to conversations with founders, investors, technology companies, and
+        <p className="mt-4 max-w-lg text-pretty text-[15px] leading-6 text-white/85">
+          I’m open to conversations with founders, investors, technology companies, and
           strategic partners working on ambitious problems.
         </p>
         <div className="mt-8 flex flex-wrap items-center gap-3">
-          <Link href="/work/" className="inline-flex h-11 items-center bg-white px-5 text-[12px] font-semibold uppercase tracking-[0.08em] text-black">
-            Work with me →
-          </Link>
-          <a
-            href={site.calendly || '/work/#book'}
-            target={site.calendly ? '_blank' : undefined}
-            rel={site.calendly ? 'noopener noreferrer' : undefined}
-            className="btn-ghost"
+          <Link
+            href="/work/"
+            className="btn-base bg-white text-black hover:bg-[#e8e8e8] focus-visible:ring-white focus-visible:ring-offset-black"
           >
-            Book a session
-          </a>
+            Work with Me →
+          </Link>
+          {site.calendly ? (
+            <ExternalLink href={site.calendly} className="btn-ghost">
+              Book a Session
+            </ExternalLink>
+          ) : (
+            <Link href="/work/#book" className="btn-ghost">
+              Book a Session
+            </Link>
+          )}
         </div>
       </div>
 
-      <div className="pointer-events-none absolute inset-0 hidden lg:block">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 hidden lg:block">
         {pills.map((pill) => (
           <span
             key={pill.label}

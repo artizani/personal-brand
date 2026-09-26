@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import CtaBanner from '@/components/CtaBanner'
+import FooterCta from '@/components/FooterCta'
 import NewsletterSignup from '@/components/NewsletterSignup'
 import WritingList from '@/components/WritingList'
 import { getAllTags, getPostsByTag } from '@/lib/posts'
@@ -24,28 +24,36 @@ export default function WritingTag({ params }: { params: { tag: string } }) {
   const posts = getPostsByTag(params.tag)
 
   return (
-    <main>
-      <section className="section-y bg-cream">
-        <p className="page-label">
-          <span className="h-px w-6 bg-black" />
-          <span className="pl-3">Writing</span>
-        </p>
-        <h1 className="t-h1 max-w-xl">{match.tag}</h1>
-        <p className="t-lead mt-4">
-          {posts.length} {posts.length === 1 ? 'note' : 'notes'} in this tag.{' '}
-          <Link href="/writing/" className="underline decoration-black/30 underline-offset-4">
-            All writing
-          </Link>
-        </p>
+    <main id="main" className="xp">
+      <section className="writing-page-hero" id="hero">
+        <div className="container">
+          <div className="writing-page-content scroll-reveal" data-delay={0}>
+            <span className="hero-eyebrow-dash">Writing</span>
+            <h1 className="writing-page-headline">{match.tag}</h1>
+            <p className="writing-page-description">
+              {posts.length} {posts.length === 1 ? 'note' : 'notes'} in this tag.{' '}
+              <Link
+                href="/writing/"
+                className="underline decoration-black/30 underline-offset-4 transition-colors hover:decoration-black"
+              >
+                All writing
+              </Link>
+            </p>
+          </div>
+        </div>
       </section>
 
-      <section className="section-y bg-white">
-        <p className="t-kicker border-b border-black/20 pb-4">Latest writings</p>
-        <WritingList posts={posts} />
+      <section className="writings-archive-section" id="latest-writings">
+        <div className="container">
+          <div className="archive-header-divider scroll-reveal" data-delay={50}>
+            <h2 className="archive-category-title">Tagged: {match.tag}</h2>
+          </div>
+          <WritingList posts={posts} />
+        </div>
       </section>
 
       <NewsletterSignup />
-      <CtaBanner />
+      <FooterCta />
     </main>
   )
 }

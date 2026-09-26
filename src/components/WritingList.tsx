@@ -3,22 +3,29 @@ import type { PostMeta } from '@/lib/posts'
 import { tagSlug } from '@/lib/posts'
 
 export default function WritingList({ posts }: { posts: PostMeta[] }) {
+  if (posts.length === 0) {
+    return <p className="writing-card-summary">Nothing published here yet. Check back soon.</p>
+  }
+
   return (
-    <div className="mt-6 space-y-4">
-      {posts.map((post) => (
+    <div className="writings-stack">
+      {posts.map((post, index) => (
         <Link
           key={post.slug}
           href={`/writing/${post.slug}/`}
-          className="flex flex-wrap items-center justify-between gap-4 border-b border-r border-black/10 border-l-[6px] border-l-black bg-paper px-5 py-5 transition-colors hover:bg-[#f0f0ee] sm:px-8"
+          className="writing-card-row scroll-reveal"
+          data-delay={100 + index * 50}
         >
-          <div className="min-w-[240px] flex-1 pr-4">
-            {post.num ? <p className="font-mono text-[12px] text-muted">{post.num}</p> : null}
-            <h2 className="t-h3 mt-1">{post.title}</h2>
-            <p className="mt-1 text-[14px] text-muted">{post.description}</p>
+          <div className="writing-card-body">
+            {post.num ? (
+              <p className="mb-1 font-mono text-[12px] tabular-nums text-[color:var(--text-muted)]">{post.num}</p>
+            ) : null}
+            <h3 className="writing-card-headline break-words">{post.title}</h3>
+            <p className="writing-card-summary line-clamp-2">{post.description}</p>
           </div>
-          <span className="border border-black px-6 py-3 text-[12px] font-medium uppercase tracking-[0.05em]">
-            Read
-          </span>
+          <div className="writing-card-action">
+            <span className="btn-read-badge">Read</span>
+          </div>
         </Link>
       ))}
     </div>
@@ -30,7 +37,7 @@ export function TagLinks({ tags }: { tags: string[] }) {
   return (
     <p className="mt-3 flex flex-wrap gap-x-3 gap-y-1 font-mono text-[12px] uppercase tracking-[1.2px] text-muted">
       {tags.map((tag) => (
-        <Link key={tag} href={`/writing/tags/${tagSlug(tag)}/`}>
+        <Link key={tag} href={`/writing/tags/${tagSlug(tag)}/`} className="t-link">
           {tag}
         </Link>
       ))}

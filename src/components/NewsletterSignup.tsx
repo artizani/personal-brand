@@ -1,17 +1,19 @@
 'use client'
 
 import { FormEvent, useState } from 'react'
+import { site } from '@/lib/site'
+
+type Status = 'idle' | 'sending' | 'sent' | 'error'
 
 export default function NewsletterSignup() {
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
-  const [message, setMessage] = useState('')
+  const [status, setStatus] = useState<Status>('idle')
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
+    if (status === 'sending') return
     const form = event.currentTarget
     const email = String(new FormData(form).get('email') || '')
     setStatus('sending')
-    setMessage('')
 
     try {
       const response = await fetch('/api/newsletter', {
@@ -25,12 +27,12 @@ export default function NewsletterSignup() {
       }
       form.reset()
       setStatus('sent')
-      setMessage('You are on the list.')
     } catch {
       setStatus('error')
-      setMessage('The list is not available yet. Email me directly in the meantime.')
     }
   }
+
+  const sending = status === 'sending'
 
   return (
     <section className="section-y bg-cream">
@@ -39,20 +41,37 @@ export default function NewsletterSignup() {
       <p className="t-lead mt-3">No cadence promises. When something is worth sending, it goes out.</p>
       <form onSubmit={onSubmit} className="mt-6 flex max-w-xl flex-col gap-3 sm:flex-row sm:items-end">
         <label className="block min-w-0 flex-1">
-          <span className="text-[12px] font-bold uppercase tracking-[1px] text-[#4a4a4a]">Email</span>
+          <span className="field-label">Email</span>
           <input
             type="email"
             name="email"
             required
             autoComplete="email"
-            className="mt-1.5 h-12 w-full border border-black/20 bg-paper px-3 text-[15px] outline-none focus:border-black"
+            spellCheck={false}
+            inputMode="email"
+            placeholder="you@example.com…"
+            className="field"
           />
         </label>
-        <button type="submit" disabled={status === 'sending'} className="btn-solid disabled:opacity-60">
-          {status === 'sending' ? 'Sending…' : 'Subscribe'}
+        <button type="submit" aria-busy={sending} className="btn-solid">
+          {sending ? 'Subscribing…' : 'Subscribe'}
         </button>
       </form>
-      {message ? <p className="mt-3 text-[14px] text-sage">{message}</p> : null}
+      <p
+        aria-live="polite"
+        className={`mt-3 text-[14px] ${status === 'error' ? 'text-red-700' : 'text-sage'}`}
+      >
+        {status === 'sent' && 'You’re on the list.'}
+        {status === 'error' && (
+          <>
+            The list isn’t available yet. Email{' '}
+            <a href={`mailto:${site.email}`} className="underline">
+              {site.email}
+            </a>{' '}
+            in the meantime.
+          </>
+        )}
+      </p>
     </section>
   )
 }

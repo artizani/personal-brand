@@ -28,6 +28,10 @@ const config: Config = {
       },
     },
   },
+  corePlugins: {
+    // executive.css defines its own .container
+    container: false,
+  },
   plugins: [],
 }
 export default config

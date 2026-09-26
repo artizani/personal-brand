@@ -1,98 +1,164 @@
-import CtaBanner from '@/components/CtaBanner'
 import CalendlyEmbed from '@/components/CalendlyEmbed'
 import ContactForm from '@/components/ContactForm'
 import PaymentButtons from '@/components/PaymentButtons'
-import { integrations } from '@/lib/site'
+import Constellation from '@/components/motion/Constellation'
+import { integrations, site } from '@/lib/site'
 
 export const metadata = {
-  title: 'Work With Me — David Salami',
+  title: "Advisory & Contact — David Salami | Let's build something consequential.",
   description:
-    'Advisory for technology leaders making high-stakes decisions under operational constraints.',
+    'Advisory for technology leaders making high-stakes decisions under operational constraints. 60-minute private advisory sessions.',
 }
+
+const sessionPrice = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'USD',
+  maximumFractionDigits: 0,
+}).format(1000)
 
 export default function Work() {
   return (
-    <main>
-      <section className="section-y bg-cream">
-        <p className="page-label">
-          <span className="h-px w-6 bg-black" />
-          <span className="pl-3">Work with me</span>
-        </p>
-        <h1 className="t-h1 max-w-2xl">Let&apos;s build something consequential.</h1>
-        <p className="t-lead mt-4">
-          Advisory for technology leaders making high-stakes decisions under operational
-          constraints.
-        </p>
-        <div id="payments" className="mt-7">
-          <PaymentButtons />
-          {!integrations.stripe && !integrations.paypal && (
-            <p className="mt-3 max-w-xl text-[13px] leading-5 text-muted">
-              Payment confirms the session. Stripe and PayPal will be connected here.
-            </p>
-          )}
-        </div>
-      </section>
-
-      <section className="section-y bg-night text-white">
-        <p className="text-[12px] uppercase tracking-[0.06em] text-white/70">
-          01 — Private advisory sessions
-        </p>
-        <h2 className="t-h2 mt-4 max-w-2xl text-white">
-          60 minutes, remote, one problem at a time.
-        </h2>
-        <div className="mt-8 grid gap-8 lg:grid-cols-[1.3fr_1fr]">
-          <div className="border-white/40 lg:border-r lg:pr-8">
-            <p className="text-[15px] leading-6 text-white/85">
-              We focus on one problem: technical architecture decisions, organizational design,
-              vendor evaluation, or security and compliance strategy.
-            </p>
-            <p className="mt-3 text-[15px] leading-6 text-white/85">
-              You receive direct guidance based on systems that have operated at scale in complex
-              environments. No frameworks, no theory — practical direction you can act on
-              immediately.
-            </p>
-          </div>
-          <div>
-            <p className="font-display text-[36px] font-bold leading-none">$1000</p>
-            <p className="mt-3 text-[15px] leading-6 text-white/80">
-              per hour, paid in advance.
+    <main id="main" className="xp">
+      <section className="advisory-hero-section" id="hero">
+        <div className="container">
+          <div className="advisory-hero-content scroll-reveal" data-delay={0}>
+            <span className="section-tag-mono">Work with me</span>
+            <h1 className="advisory-headline">
+              Let&rsquo;s build something
               <br />
-              Payment confirms your commitment to the work.
+              consequential.
+            </h1>
+
+            <p className="advisory-hero-description">
+              Advisory for technology leaders making high-stakes decisions under operational
+              constraints.
             </p>
+
+            <div className="advisory-hero-actions">
+              <PaymentButtons />
+            </div>
+            {(!integrations.stripe || !integrations.paypal) && (
+              <p id="payments-unavailable" className="session-price-note mt-4 max-w-xl">
+                Payment confirms the session. Stripe and PayPal will be connected here.
+              </p>
+            )}
           </div>
         </div>
       </section>
 
-      <section className="section-y bg-white">
-        <p className="t-kicker border-b border-black/20 pb-3">03 — Get in Touch</p>
-        <h2 className="t-h2 mt-6 max-w-xl">Include the details that matter.</h2>
-        <p className="t-lead mt-3">
-          The decision you&apos;re facing, the constraints you&apos;re working under, and what you
-          need clarity on.
-        </p>
-        <ContactForm />
+      <section className="private-sessions-section dark-theme" id="sessions">
+        <div className="container">
+          <div className="private-sessions-header scroll-reveal">
+            <span className="section-tag-mono">01 — PRIVATE ADVISORY SESSIONS</span>
+            <h2 className="private-sessions-title">
+              60 minutes, remote, one
+              <br />
+              problem at a time.
+            </h2>
+          </div>
+
+          <div className="private-sessions-grid scroll-reveal" data-delay={100}>
+            <div className="sessions-narrative">
+              <h3 className="session-subtitle">60 minutes, remote, one problem at a time.</h3>
+              <p className="session-desc-lead">
+                We focus on one specific bottleneck: architecture review, organizational design,
+                vendor selection, operational strategy, or technical hiring.
+              </p>
+              <p className="session-desc-body">
+                You receive direct guidance based on systems that have operated at scale in complex
+                environments. No frameworks, no theory — practical direction you can act on
+                immediately.
+              </p>
+            </div>
+
+            <div className="session-price-box">
+              <div className="session-price-amount">{sessionPrice}</div>
+              <div className="session-price-term">per hour, paid in advance</div>
+              <p className="session-price-note">Payment confirms your commitment to the work.</p>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section id="book" className="section-y scroll-mt-20 bg-paper">
-        <p className="t-kicker border-b border-black/20 pb-3">04 — Book a private advisory session</p>
-        <h2 className="t-h2 mt-6">60-minute sessions available.</h2>
-        <p className="mt-3 text-[15px] text-sage">
-          Review your specific challenge and receive direct guidance.
-        </p>
-        <div className="mt-6">
-          <CalendlyEmbed />
-        </div>
-        <h3 className="t-h3 mt-10">Book a session</h3>
-        <p className="mt-2 max-w-xl text-[14px] leading-6 text-[#5a667a]">
-          We focus on one problem: technical architecture decisions, organizational design, vendor
-          evaluation, or security and compliance strategy. Pay to confirm, then pick a time.
-        </p>
-        <div className="mt-6">
-          <PaymentButtons size="wide" />
+      <section className="contact-form-section" id="contact-form">
+        <div className="container">
+          <div className="contact-form-header scroll-reveal">
+            <span className="section-tag-mono">02 — GET IN TOUCH</span>
+            <h2 className="section-title form-headline">
+              Include the details
+              <br />
+              that matter.
+            </h2>
+            <p className="form-subheading">
+              The decision you&rsquo;re facing, the constraints you&rsquo;re working under, and
+              what you need clarity on.
+            </p>
+          </div>
+
+          <div className="scroll-reveal" data-delay={100}>
+            <ContactForm />
+          </div>
         </div>
       </section>
 
-      <CtaBanner />
+      <section className="booking-section" id="booking">
+        <div className="container">
+          <div className="booking-header scroll-reveal">
+            <span className="section-tag-mono">03 — BOOK A 60-MINUTE ADVISORY SESSION</span>
+            <h2 className="section-title booking-headline">
+              60-minute sessions
+              <br />
+              available.
+            </h2>
+            <p className="booking-subheading">Reserve your spot directly on the calendar below.</p>
+          </div>
+
+          <div id="book" className="scroll-reveal mb-[4.5rem] scroll-mt-24" data-delay={100}>
+            <CalendlyEmbed />
+          </div>
+
+          <div className="booking-cta-block scroll-reveal" data-delay={200}>
+            <h3 className="booking-cta-title">BOOK A SESSION</h3>
+            <p className="booking-cta-desc">
+              We focus on one problem: technical architecture decisions, organizational design,
+              vendor evaluation, or security and compliance strategy. {sessionPrice} per hour, paid
+              in advance.
+            </p>
+
+            <div className="booking-cta-actions">
+              <PaymentButtons size="wide" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="footer-cta-section dark-theme" id="footer-cta">
+        <div className="container footer-cta-grid">
+          <div className="footer-cta-left scroll-reveal">
+            <span className="section-tag-mono">GET IN TOUCH //</span>
+            <h2 className="footer-cta-title">For advisory, speaking, or collaboration.</h2>
+            <p className="footer-cta-desc">
+              Open to select board advisory roles, executive coaching for venture-backed founders,
+              and keynote speaking engagements on scaling mission-critical systems.
+            </p>
+            <div className="footer-cta-actions">
+              <a href={`mailto:${site.email}`} className="btn btn-white">
+                Get in touch
+              </a>
+              <a
+                href={`mailto:${site.email}?subject=${encodeURIComponent('CV request')}`}
+                className="btn btn-outline-light"
+              >
+                Request CV
+              </a>
+            </div>
+          </div>
+
+          <div className="footer-cta-right scroll-reveal" data-delay={200}>
+            <Constellation />
+          </div>
+        </div>
+      </section>
     </main>
   )
 }

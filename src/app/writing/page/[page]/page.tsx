@@ -1,5 +1,5 @@
 import { notFound, redirect } from 'next/navigation'
-import CtaBanner from '@/components/CtaBanner'
+import FooterCta from '@/components/FooterCta'
 import NewsletterSignup from '@/components/NewsletterSignup'
 import Pagination from '@/components/Pagination'
 import WritingList from '@/components/WritingList'
@@ -25,24 +25,35 @@ export default function WritingPaged({ params }: { params: { page: string } }) {
   if (page > listing.totalPages) notFound()
 
   return (
-    <main>
-      <section className="section-y bg-cream">
-        <p className="page-label">
-          <span className="h-px w-6 bg-black" />
-          <span className="pl-3">Writing</span>
-        </p>
-        <h1 className="t-h1 max-w-xl">Thinking beyond technology.</h1>
-        <p className="t-lead mt-4">Page {listing.page} of {listing.totalPages}.</p>
+    <main id="main" className="xp">
+      <section className="writing-page-hero" id="hero">
+        <div className="container">
+          <div className="writing-page-content scroll-reveal" data-delay={0}>
+            <span className="hero-eyebrow-dash">Writing</span>
+            <h1 className="writing-page-headline">
+              Thinking beyond
+              <br />
+              technology.
+            </h1>
+            <p className="writing-page-description tabular-nums">
+              Page {listing.page} of {listing.totalPages}.
+            </p>
+          </div>
+        </div>
       </section>
 
-      <section className="section-y bg-white">
-        <p className="t-kicker border-b border-black/20 pb-4">Latest writings</p>
-        <WritingList posts={listing.posts} />
-        <Pagination page={listing.page} totalPages={listing.totalPages} />
+      <section className="writings-archive-section" id="latest-writings">
+        <div className="container">
+          <div className="archive-header-divider scroll-reveal" data-delay={50}>
+            <h2 className="archive-category-title">Latest Writings</h2>
+          </div>
+          <WritingList posts={listing.posts} />
+          <Pagination page={listing.page} totalPages={listing.totalPages} />
+        </div>
       </section>
 
       <NewsletterSignup />
-      <CtaBanner />
+      <FooterCta />
     </main>
   )
 }

@@ -1,23 +1,27 @@
+import ExternalLink from '@/components/ExternalLink'
 import { site } from '@/lib/site'
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[#747878] bg-paper">
-      <div className="mx-auto flex max-w-site flex-col items-start justify-between gap-3 px-6 py-5 sm:flex-row sm:items-center lg:px-10">
-        <p className="text-[12px] uppercase leading-5 text-sage">
-          David Salami. All rights reserved.
-        </p>
-        <div className="flex gap-5">
-          <a href={site.github} className="text-[13px] uppercase text-sage">
-            Github
-          </a>
-          <a href={site.linkedin} className="text-[13px] uppercase text-sage">
-            Linkedin
-          </a>
-          <a href={`mailto:${site.email}`} className="text-[13px] uppercase text-sage">
+    <footer className="site-bottom-footer dark-theme xp">
+      <div className="container footer-bottom-inner">
+        <div className="footer-brand">
+          <span className="footer-copy">
+            &copy; {new Date().getFullYear()} {site.name}. All rights reserved.
+          </span>
+        </div>
+
+        <nav className="footer-links" aria-label="Social">
+          <ExternalLink href={site.github} className="footer-link" translate="no">
+            GitHub
+          </ExternalLink>
+          <ExternalLink href={site.linkedin} className="footer-link" translate="no">
+            LinkedIn
+          </ExternalLink>
+          <a href={`mailto:${site.email}`} className="footer-link">
             Email
           </a>
-        </div>
+        </nav>
       </div>
     </footer>
   )

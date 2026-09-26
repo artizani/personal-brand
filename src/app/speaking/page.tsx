@@ -1,104 +1,148 @@
-import CtaBanner from '@/components/CtaBanner'
+import type { Metadata } from 'next'
+import FooterCta from '@/components/FooterCta'
 import { site } from '@/lib/site'
 
-const topics = [
-  { num: '01', label: 'Technical leadership at scale' },
-  { num: '02', label: 'Building software for regulated environments' },
-  { num: '03', label: 'Security as a systems problem' },
-  { num: '04', label: 'Decision-making under operational constraints' },
-  { num: '05', label: 'Founder lessons from building in emerging markets' },
-  { num: '06', label: 'What infrastructure-grade software actually requires' },
+export const metadata: Metadata = {
+  title: 'Speaking — David Salami | Ideas worth putting in the room.',
+  description:
+    'Keynotes and talks on technology leadership, execution, enterprise company building, security, and operating complex systems.',
+}
+
+const talks = [
+  {
+    title: 'Technical leadership at scale',
+    desc: 'Navigating organizational complexity, aligning engineering output with commercial survival, and leading high-context autonomous teams under real pressure.',
+  },
+  {
+    title: 'Building software for constrained environments',
+    desc: 'Architecting distributed resilience, graceful degradation, and offline-first capabilities where network and hardware failures are daily operational certainties.',
+  },
+  {
+    title: 'Security as a systems problem',
+    desc: 'Moving beyond dashboard compliance: designing human protocols, threat-modeled incentives, and zero-trust operational accountability directly into code.',
+  },
+  {
+    title: 'Decision-making under operational constraints',
+    desc: 'Rigorous frameworks for high-stakes execution, capital allocation, and technical trade-offs when time, runway, and error budgets are razor-thin.',
+  },
+  {
+    title: 'Bridging software and physical supply chains',
+    desc: 'Deploying real-time telemetry, inventory reconcilement, and warehouse dispatch algorithms across messy emerging market distribution channels.',
+  },
+  {
+    title: 'Scaling technology in emerging markets',
+    desc: 'Hard-won playbooks for turning informal commerce, fragmented cash workflows, and infrastructure volatility into durable, high-margin software.',
+  },
 ]
 
-export const metadata = {
-  title: 'Speaking — David Salami',
-  description:
-    'Speaking to technical leaders about building systems that hold up under real conditions.',
-}
+const audiences = ['Engineering leaders', 'Founders', 'Executives']
 
 export default function Speaking() {
   return (
-    <main>
-      <section className="section-y bg-cream">
-        <div className="grid items-center gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-          <div>
-            <p className="page-label">
-              <span className="h-px w-6 bg-black" />
-              <span className="pl-3">Speaking</span>
+    <main id="main" className="xp">
+      <section className="speaking-hero-section" id="speaking-hero">
+        <div className="container speaking-hero-grid">
+          <div className="speaking-hero-content scroll-reveal" data-delay={0}>
+            <span className="section-tag-mono">SPEAKING</span>
+            <h1 className="speaking-headline">Ideas worth putting in the room.</h1>
+
+            <p className="speaking-hero-description">
+              Keynotes and talks on technology leadership, execution, enterprise company building,
+              security, and operating complex systems.
             </p>
-            <h1 className="t-h1 text-[#1a1a1a]">Ideas worth putting in the room.</h1>
-            <p className="t-lead mt-4">
-              David speaks about technology leadership, infrastructure, company building, security,
-              and operating complex systems.
-            </p>
-            <a
-              href={`mailto:${site.email}?subject=${encodeURIComponent('Speaking invitation')}`}
-              className="btn-solid mt-6"
-            >
-              Invite David to Speak →
-            </a>
+
+            <div className="speaking-hero-actions">
+              <a
+                href={`mailto:${site.email}?subject=${encodeURIComponent('Speaking invitation')}`}
+                className="btn btn-primary btn-speak"
+              >
+                <span>INVITE David TO SPEAK</span>
+                <svg
+                  className="btn-arrow"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 14 14"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M1 7H13M13 7L7.5 1.5M13 7L7.5 12.5"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </a>
+            </div>
           </div>
-          <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg">
-            <img
-              src="/images/speaking.jpg"
-              alt="David Salami speaking"
-              className="absolute left-[-8%] top-0 h-full w-[116%] max-w-none object-cover"
-            />
+
+          <div className="speaking-hero-visual scroll-reveal" data-delay={150}>
+            <div className="speaking-photo-frame">
+              <img
+                src="/executive/david-speaking.png"
+                alt="David Salami engaging with attendees at technology summit"
+                className="speaking-photo-img"
+                width={1226}
+                height={922}
+                fetchPriority="high"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="section-y bg-night text-white">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-white/70">Topics</p>
-        <h2 className="t-h2 mt-2 max-w-2xl text-white">
-          Six areas drawn directly from work on systems that don&apos;t get second chances.
-        </h2>
-        <div className="mt-8 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
-          {topics.map((topic) => (
-            <article
-              key={topic.num}
-              className="rounded-[5px] border border-black/20 bg-white px-5 py-5 text-black"
-            >
-              <p className="font-mono text-[18px] font-medium tracking-[-0.04em] text-sage">
-                {topic.num}
+      <section className="talks-section dark-theme" id="talks">
+        <div className="container">
+          <div className="talks-header scroll-reveal">
+            <span className="section-tag-mono">TALKS</span>
+            <h2 className="talks-title">
+              Six areas drawn directly from work on systems that don&rsquo;t get second chances.
+            </h2>
+          </div>
+
+          <div className="talks-grid">
+            {talks.map((talk, i) => (
+              <article key={talk.title} className="talk-card scroll-reveal" data-delay={(i + 1) * 100}>
+                <span className="card-num-mono">{String(i + 1).padStart(2, '0')}</span>
+                <h3 className="talk-card-title">{talk.title}</h3>
+                <p className="talk-card-desc">{talk.desc}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="audience-section" id="audience">
+        <div className="container">
+          <div className="audience-block scroll-reveal">
+            <span className="section-tag-mono">AUDIENCE</span>
+            <h2 className="section-title audience-headline">Who These Talks Are Built For.</h2>
+
+            <div className="audience-pills">
+              {audiences.map((label) => (
+                <div key={label} className="audience-pill">
+                  {label}
+                </div>
+              ))}
+              <div className="audience-pill wide-pill">Technical teams in complex environments</div>
+            </div>
+          </div>
+
+          <div className="audience-divider" />
+
+          <div className="outcomes-block scroll-reveal" data-delay={150}>
+            <span className="section-tag-mono">OUTCOMES</span>
+            <div className="outcomes-callout">
+              <p className="outcomes-text">
+                Audiences leave with clearer mental models, fewer abstractions, and better questions.
               </p>
-              <p className="mt-2 text-[15px] leading-6">{topic.label}</p>
-            </article>
-          ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="section-y bg-white">
-        <p className="t-kicker border-b border-black/20 pb-3">Audience</p>
-        <h2 className="t-h2 mt-5">Who these talks are built for.</h2>
-        <div className="mt-6 flex flex-wrap gap-3">
-          {[
-            'Engineering leaders',
-            'Founders',
-            'Executives',
-            'Technical teams in complex environments',
-          ].map((label) => (
-            <span
-              key={label}
-              className="inline-flex items-center rounded-full border border-black/30 px-5 py-2.5 text-[14px] font-medium"
-            >
-              {label}
-            </span>
-          ))}
-        </div>
-      </section>
-
-      <section className="bg-white px-6 pb-12 lg:px-16">
-        <p className="t-kicker border-b border-black/20 pb-3">Outcome</p>
-        <div className="relative mt-6 border-b border-r border-black/10 bg-paper py-6 pl-8 pr-6">
-          <div className="absolute bottom-0 left-0 top-0 w-1 bg-[#102e6b]" />
-          <p className="t-h3 max-w-3xl text-[#111]">
-            Audiences leave with clearer mental models, fewer abstractions, and better questions.
-          </p>
-        </div>
-      </section>
-
-      <CtaBanner />
+      <FooterCta />
     </main>
   )
 }

@@ -1,14 +1,33 @@
 'use client'
 
-import { FormEvent, useState } from 'react'
+import { FormEvent, useEffect, useRef, useState } from 'react'
 import { site } from '@/lib/site'
 
+type Status = 'idle' | 'sending' | 'sent' | 'error'
+
 export default function ContactForm() {
-  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
-  const [error, setError] = useState('')
+  const [status, setStatus] = useState<Status>('idle')
+  const [dirty, setDirty] = useState(false)
+  const statusRef = useRef<HTMLParagraphElement>(null)
+
+  // Warn before leaving with an unsent message.
+  useEffect(() => {
+    if (!dirty || status === 'sent') return
+    const warn = (event: BeforeUnloadEvent) => {
+      event.preventDefault()
+      event.returnValue = ''
+    }
+    window.addEventListener('beforeunload', warn)
+    return () => window.removeEventListener('beforeunload', warn)
+  }, [dirty, status])
+
+  useEffect(() => {
+    if (status === 'error') statusRef.current?.focus()
+  }, [status])
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
+    if (status === 'sending') return
     const form = event.currentTarget
     const data = new FormData(form)
     const name = String(data.get('name') || '')
@@ -17,7 +36,6 @@ export default function ContactForm() {
     const message = String(data.get('message') || '')
 
     setStatus('sending')
-    setError('')
 
     if (site.formspree) {
       try {
@@ -28,10 +46,10 @@ export default function ContactForm() {
         })
         if (!response.ok) throw new Error('Form service returned an error')
         form.reset()
+        setDirty(false)
         setStatus('sent')
       } catch {
         setStatus('error')
-        setError('The message could not be sent. Email directly instead.')
       }
       return
     }
@@ -49,44 +67,82 @@ export default function ContactForm() {
     window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(
       `Advisory enquiry from ${name}`,
     )}&body=${encodeURIComponent(body)}`
+    setDirty(false)
     setStatus('sent')
   }
 
-  const field =
-    'mt-1.5 h-12 w-full border border-black/20 bg-paper px-3 text-[15px] outline-none focus:border-black'
-  const label = 'text-[12px] font-bold uppercase tracking-[1px] text-[#4a4a4a]'
+  const sending = status === 'sending'
 
   return (
-    <form onSubmit={onSubmit} className="mt-8 max-w-4xl space-y-5">
+    <form onSubmit={onSubmit} onChange={() => setDirty(true)} className="mt-8 max-w-4xl space-y-5">
       <div className="grid gap-4 md:grid-cols-2">
         <label className="block">
-          <span className={label}>Full name</span>
-          <input name="name" required className={field} autoComplete="name" />
+          <span className="field-label">Full Name</span>
+          <input
+            name="name"
+            required
+            className="field"
+            autoComplete="name"
+            spellCheck={false}
+            placeholder="Jane Doe…"
+          />
         </label>
         <label className="block">
-          <span className={label}>Email</span>
-          <input type="email" name="email" required className={field} autoComplete="email" />
+          <span className="field-label">Email</span>
+          <input
+            type="email"
+            name="email"
+            required
+            className="field"
+            autoComplete="email"
+            spellCheck={false}
+            inputMode="email"
+            placeholder="jane@company.com…"
+          />
         </label>
       </div>
       <label className="block">
-        <span className={label}>Organisation (optional)</span>
-        <input name="organisation" className={field} autoComplete="organization" />
+        <span className="field-label">Organisation (Optional)</span>
+        <input
+          name="organisation"
+          className="field"
+          autoComplete="organization"
+          spellCheck={false}
+          placeholder="Acme Ltd…"
+        />
       </label>
       <label className="block">
-        <span className={label}>Message</span>
-        <textarea name="message" required className={`${field} h-28 p-3`} />
+        <span className="field-label">Message</span>
+        <textarea
+          name="message"
+          required
+          className="field h-28 p-3"
+          placeholder="What you’re working on and where you need help…"
+        />
       </label>
-      <button type="submit" disabled={status === 'sending'} className="btn-solid disabled:opacity-60">
-        {status === 'sending' ? 'Sending…' : 'Send message →'}
+      <button type="submit" aria-busy={sending} className="btn-solid">
+        {sending ? 'Sending…' : 'Send Message →'}
       </button>
-      {status === 'sent' && (
-        <p className="text-[14px] text-sage">
-          {site.formspree
-            ? 'Message sent. I will follow up directly.'
-            : 'Your email client should open with the message ready to send.'}
-        </p>
-      )}
-      {status === 'error' && <p className="text-[14px] text-red-700">{error}</p>}
+      <p
+        ref={statusRef}
+        tabIndex={-1}
+        aria-live="polite"
+        className={`text-[14px] ${status === 'error' ? 'text-red-700' : 'text-sage'}`}
+      >
+        {status === 'sent' &&
+          (site.formspree
+            ? 'Message sent. You’ll hear back directly.'
+            : 'Your email client should open with the message ready to send.')}
+        {status === 'error' && (
+          <>
+            The message could not be sent. Email{' '}
+            <a href={`mailto:${site.email}`} className="underline">
+              {site.email}
+            </a>{' '}
+            directly instead.
+          </>
+        )}
+      </p>
     </form>
   )
 }

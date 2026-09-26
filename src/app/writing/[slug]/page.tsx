@@ -57,7 +57,7 @@ export default function WritingPost({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <main>
+    <main id="main">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <article>
         <header className="section-y bg-cream">
@@ -78,7 +78,7 @@ export default function WritingPost({ params }: { params: { slug: string } }) {
           <div className="max-w-2xl">
             <MDXRemote source={post.content} components={mdxComponents} />
             <p className="mt-12">
-              <Link href="/writing/" className="text-[13px] font-semibold uppercase tracking-[0.08em]">
+              <Link href="/writing/" className="t-link text-[13px] font-semibold uppercase tracking-[0.08em]">
                 ← All writing
               </Link>
             </p>
