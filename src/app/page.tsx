@@ -3,7 +3,6 @@ import Link from 'next/link'
 import ExternalLink from '@/components/ExternalLink'
 import FooterCta from '@/components/FooterCta'
 import { getPosts } from '@/lib/posts'
-import { site } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'David Salami — Founder & Growth Executive',
@@ -139,9 +138,9 @@ export default function Home() {
                 </div>
                 <div className="meta-item">
                   <span className="meta-label">CONTACT</span>
-                  <a href={`mailto:${site.profileEmail}`} className="meta-value">
-                    {site.profileEmail}
-                  </a>
+                  <Link href="/work/#contact-form" className="meta-value">
+                    Send a message
+                  </Link>
                 </div>
               </div>
             </div>

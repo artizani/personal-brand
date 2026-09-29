@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import ExternalLink from '@/components/ExternalLink'
 import { site } from '@/lib/site'
 
@@ -18,9 +19,9 @@ export default function Footer() {
           <ExternalLink href={site.linkedin} className="footer-link" translate="no">
             LinkedIn
           </ExternalLink>
-          <a href={`mailto:${site.email}`} className="footer-link">
+          <Link href="/work/#contact-form" className="footer-link">
             Email
-          </a>
+          </Link>
         </nav>
       </div>
     </footer>
