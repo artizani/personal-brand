@@ -103,7 +103,7 @@ export default function Speaking() {
 
           <div className="talks-grid">
             {talks.map((talk, i) => (
-              <article key={talk.title} className="talk-card scroll-reveal" data-delay={(i + 1) * 100}>
+              <article key={talk.title} className="talk-card scroll-reveal" data-delay={(i + 1) * 50}>
                 <span className="card-num-mono">{String(i + 1).padStart(2, '0')}</span>
                 <h3 className="talk-card-title">{talk.title}</h3>
                 <p className="talk-card-desc">{talk.desc}</p>

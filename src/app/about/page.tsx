@@ -31,7 +31,7 @@ const milestones = [
   {
     tag: 'CURRENT',
     title: 'Building Taxable.ng',
-    desc: 'Currently building Taxable.ng, Nigeria’s first fully digital tax filing platform, designed to simplify compliance for taxpayers without weakening accountability.',
+    desc: 'Currently building Taxable.ng, a fully digital tax filing platform for Nigerian taxpayers, designed to simplify compliance without weakening accountability.',
     why: 'Why it matters: it’s the same problem in a new form, making a high-stakes, regulated system genuinely usable.',
   },
 ]
@@ -177,13 +177,13 @@ export default function About() {
               <br />
               been about building
               <br />
-              what scale<span className="amber-dot">.</span>
+              at scale<span className="amber-dot">.</span>
             </h2>
           </div>
 
           <div className="milestones-list">
             {milestones.map((item, i) => (
-              <article key={item.title} className="milestone-item scroll-reveal" data-delay={(i + 1) * 100}>
+              <article key={item.title} className="milestone-item scroll-reveal" data-delay={(i + 1) * 50}>
                 <div className="milestone-icon-col">
                   <div className="milestone-bullet">
                     <PlusIcon />
@@ -212,7 +212,7 @@ export default function About() {
 
           <div className="complexity-grid">
             {pillars.map((pillar, i) => (
-              <div key={pillar.title} className="complexity-card scroll-reveal" data-delay={(i + 1) * 100}>
+              <div key={pillar.title} className="complexity-card scroll-reveal" data-delay={(i + 1) * 50}>
                 <span className="pillar-num">{String(i + 1).padStart(2, '0')}</span>
                 <h3 className="pillar-title">{pillar.title}</h3>
                 <p className="pillar-desc">{pillar.desc}</p>

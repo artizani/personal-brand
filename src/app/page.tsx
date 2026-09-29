@@ -55,7 +55,7 @@ const ventures = [
   {
     name: 'Taxable.ng',
     role: 'Founder & Builder',
-    body: 'Nigeria’s first fully digital tax filing platform, built to simplify compliance for taxpayers without weakening accountability.',
+    body: 'A fully digital tax filing platform for Nigerian taxpayers, built to simplify compliance without weakening accountability.',
     href: 'https://www.taxable.ng/',
     cta: 'Visit site',
   },
@@ -84,7 +84,7 @@ const stakes = [
     title: 'Online manufacturing & logistics systems',
     body: 'Architected end-to-end operational software for distributed manufacturing. Replaced legacy monolithic structures with micro-services, improving throughput by 40%.',
     href: '#contact',
-    cta: 'Read architecture note',
+    cta: 'Ask about this system',
     label: 'Ask about the manufacturing systems architecture',
   },
   {
@@ -256,7 +256,7 @@ export default function Home() {
 
           <div className="ventures-list">
             {ventures.map((venture, i) => (
-              <div key={venture.name} className="venture-row scroll-reveal" data-delay={(i + 1) * 100}>
+              <div key={venture.name} className="venture-row scroll-reveal" data-delay={(i + 1) * 50}>
                 <div className="venture-col-company">
                   <h3 className="venture-name">{venture.name}</h3>
                   <span className="venture-role">{venture.role}</span>
@@ -302,7 +302,7 @@ export default function Home() {
                 </>
               )
               return (
-                <article key={card.num} className="stake-card scroll-reveal" data-delay={(i + 1) * 100}>
+                <article key={card.num} className="stake-card scroll-reveal" data-delay={(i + 1) * 50}>
                   <div className="stake-card-top">
                     <span className="card-num-mono">{card.num}</span>
                     <span className="card-badge">{card.badge}</span>
@@ -342,7 +342,7 @@ export default function Home() {
                 key={post.slug}
                 href={`/writing/${post.slug}/`}
                 className="essay-card scroll-reveal"
-                data-delay={(i + 1) * 100}
+                data-delay={(i + 1) * 50}
               >
                 <span className="essay-num">{post.num ?? String(i + 1).padStart(2, '0')}</span>
                 <h3 className="essay-title">{post.title}</h3>
@@ -359,7 +359,7 @@ export default function Home() {
             <Link
               href="/writing/"
               className="essay-card action-card scroll-reveal"
-              data-delay={(posts.length + 1) * 100}
+              data-delay={(posts.length + 1) * 50}
             >
               <div className="action-card-content">
                 <span className="action-card-tag">ARCHIVE</span>

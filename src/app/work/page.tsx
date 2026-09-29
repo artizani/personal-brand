@@ -7,7 +7,7 @@ import { integrations, site } from '@/lib/site'
 export const metadata = {
   title: "Advisory & Contact — David Salami | Let's build something consequential.",
   description:
-    'Advisory for technology leaders making high-stakes decisions under operational constraints. 60-minute private advisory sessions.',
+    'Advisory for technology leaders making high-stakes decisions under operational constraints. 30-minute private advisory sessions.',
 }
 
 const sessionPrice = new Intl.NumberFormat('en-US', {
@@ -35,13 +35,10 @@ export default function Work() {
             </p>
 
             <div className="advisory-hero-actions">
-              <PaymentButtons />
+              <a href="#sessions" className="btn btn-primary">
+                See how sessions work
+              </a>
             </div>
-            {(!integrations.stripe || !integrations.paypal) && (
-              <p id="payments-unavailable" className="session-price-note mt-4 max-w-xl">
-                Payment confirms the session. Stripe and PayPal will be connected here.
-              </p>
-            )}
           </div>
         </div>
       </section>
@@ -51,7 +48,7 @@ export default function Work() {
           <div className="private-sessions-header scroll-reveal">
             <span className="section-tag-mono">01 — PRIVATE ADVISORY SESSIONS</span>
             <h2 className="private-sessions-title">
-              60 minutes, remote, one
+              30 minutes, remote, one
               <br />
               problem at a time.
             </h2>
@@ -59,7 +56,7 @@ export default function Work() {
 
           <div className="private-sessions-grid scroll-reveal" data-delay={100}>
             <div className="sessions-narrative">
-              <h3 className="session-subtitle">60 minutes, remote, one problem at a time.</h3>
+              <h3 className="session-subtitle">30 minutes, remote, one problem at a time.</h3>
               <p className="session-desc-lead">
                 We focus on one specific bottleneck: architecture review, organisational design,
                 vendor selection, operational strategy, or technical hiring.
@@ -74,7 +71,11 @@ export default function Work() {
             <div className="session-price-box">
               <div className="session-price-amount">{sessionPrice}</div>
               <div className="session-price-term">per hour, paid in advance</div>
-              <p className="session-price-note">Payment confirms your commitment to the work.</p>
+              {!integrations.stripe && (
+                <p id="payments-unavailable" className="session-price-note">
+                  Payment will be connected here shortly. In the meantime, use the form below.
+                </p>
+              )}
             </div>
           </div>
         </div>
@@ -104,9 +105,9 @@ export default function Work() {
       <section className="booking-section" id="booking">
         <div className="container">
           <div className="booking-header scroll-reveal">
-            <span className="section-tag-mono">03 — BOOK A 60-MINUTE ADVISORY SESSION</span>
+            <span className="section-tag-mono">03 — BOOK A 30-MINUTE ADVISORY SESSION</span>
             <h2 className="section-title booking-headline">
-              60-minute sessions
+              30-minute sessions
               <br />
               available.
             </h2>

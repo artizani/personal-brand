@@ -58,12 +58,12 @@ export default function Company() {
             <span className="spotlight-role">FOUNDER</span>
             <h2 className="islands-spotlight-title">Islands Digital</h2>
             <p className="islands-spotlight-desc">
-              Built and scaled a digital product agency focused on systems engineering and
-              high-fidelity interfaces. Led a distributed team delivering infrastructure solutions
-              for enterprise clients.
+              Islands Digital builds software and digital infrastructure for organisations
+              operating under real constraints. A distributed team delivering systems engineering
+              and high-fidelity interfaces for enterprise clients.
             </p>
             <a
-              href="https://islandsdigital.com"
+              href="https://www.islands.digital/"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-visit-islands"
@@ -107,8 +107,8 @@ export default function Company() {
                 </div>
                 <h3 className="active-venture-brand-name">Taxable.ng</h3>
                 <p className="active-venture-desc">
-                  Building the first fully digital tax filing platform for Nigerian taxpayers. The
-                  goal is to simplify compliance without weakening accountability.
+                  Building a fully digital tax filing platform for Nigerian taxpayers. The goal is
+                  to simplify compliance without weakening accountability.
                 </p>
               </div>
               <div className="active-venture-right">
@@ -268,7 +268,7 @@ export default function Company() {
 
           <div className="philosophy-stack">
             {principles.map((text, i) => (
-              <div key={text} className="philosophy-card-row scroll-reveal" data-delay={(i + 1) * 100}>
+              <div key={text} className="philosophy-card-row scroll-reveal" data-delay={(i + 1) * 50}>
                 <span className="philosophy-num">{String(i + 1).padStart(2, '0')}</span>
                 <span className="philosophy-text">{text}</span>
               </div>
