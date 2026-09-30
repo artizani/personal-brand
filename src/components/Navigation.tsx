@@ -9,6 +9,7 @@ const links = [
   { href: '/company/', label: 'Company' },
   { href: '/writing/', label: 'Writing' },
   { href: '/speaking/', label: 'Speaking' },
+  { href: '/work/', label: 'Work' },
 ]
 
 const ctaHref = '/work/'
