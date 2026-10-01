@@ -4,10 +4,16 @@ import PaymentButtons from '@/components/PaymentButtons'
 import Constellation from '@/components/motion/Constellation'
 import { integrations, site } from '@/lib/site'
 
+const title = "Advisory & Contact — David Salami | Let's build something consequential."
+const description =
+  'Advisory for technology leaders making high-stakes decisions under operational constraints. 30-minute private advisory sessions.'
+
 export const metadata = {
-  title: "Advisory & Contact — David Salami | Let's build something consequential.",
-  description:
-    'Advisory for technology leaders making high-stakes decisions under operational constraints. 30-minute private advisory sessions.',
+  title,
+  description,
+  alternates: { canonical: '/work/' },
+  openGraph: { title, description, url: '/work/' },
+  twitter: { title, description },
 }
 
 const sessionPrice = new Intl.NumberFormat('en-US', {

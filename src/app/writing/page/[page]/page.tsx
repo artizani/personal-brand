@@ -11,9 +11,17 @@ export function generateStaticParams() {
   return pages.map((page) => ({ page }))
 }
 
-export const metadata = {
-  title: 'Writing — David Salami',
-  description: 'Essays on technology, leadership, and systems that operate under pressure.',
+export function generateMetadata({ params }: { params: { page: string } }) {
+  const title = 'Writing — David Salami'
+  const description = 'Essays on technology, leadership, and systems that operate under pressure.'
+  const url = `/writing/page/${params.page}/`
+  return {
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: { title, description, url },
+    twitter: { title, description },
+  }
 }
 
 export default function WritingPaged({ params }: { params: { page: string } }) {

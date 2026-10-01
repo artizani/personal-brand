@@ -7,6 +7,11 @@ import Footer from '@/components/Footer'
 import ScrollProgressBar from '@/components/ScrollProgressBar'
 import ScrollRevealObserver from '@/components/motion/ScrollRevealObserver'
 import SmoothScrollAnchors from '@/components/motion/SmoothScrollAnchors'
+import { siteUrl } from '@/lib/posts'
+
+const title = 'David Salami — Founder & Technology Leader'
+const description =
+  'Founder and growth executive building companies that turn complex, real-world markets into scalable products and durable revenue.'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -36,9 +41,27 @@ const jetbrains = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'David Salami — Founder & Technology Leader',
-  description:
-    'Founder and growth executive building companies that turn complex, real-world markets into scalable products and durable revenue.',
+  metadataBase: new URL(siteUrl()),
+  title: {
+    default: title,
+    template: '%s',
+  },
+  description,
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    siteName: 'David Salami',
+    title,
+    description,
+    url: '/',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description,
+  },
 }
 
 export const viewport: Viewport = {

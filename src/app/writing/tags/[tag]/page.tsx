@@ -12,9 +12,15 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: { params: { tag: string } }) {
   const match = getAllTags().find((tag) => tag.slug === params.tag)
   if (!match) return { title: 'Writing — David Salami' }
+  const title = `${match.tag} — Writing — David Salami`
+  const description = `Notes tagged ${match.tag}.`
+  const url = `/writing/tags/${match.slug}/`
   return {
-    title: `${match.tag} — Writing — David Salami`,
-    description: `Notes tagged ${match.tag}.`,
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: { title, description, url },
+    twitter: { title, description },
   }
 }
 

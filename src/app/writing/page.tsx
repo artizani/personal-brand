@@ -4,9 +4,15 @@ import Pagination from '@/components/Pagination'
 import WritingList from '@/components/WritingList'
 import { getPostsPage } from '@/lib/posts'
 
+const title = 'Writing — David Salami'
+const description = 'Essays on technology, leadership, and systems that operate under pressure.'
+
 export const metadata = {
-  title: 'Writing — David Salami',
-  description: 'Essays on technology, leadership, and systems that operate under pressure.',
+  title,
+  description,
+  alternates: { canonical: '/writing/' },
+  openGraph: { title, description, url: '/writing/' },
+  twitter: { title, description },
 }
 
 export default function Writing() {

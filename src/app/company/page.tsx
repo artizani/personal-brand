@@ -1,9 +1,15 @@
 import FooterCta from '@/components/FooterCta'
 
+const title = 'Company & Ventures — David Salami'
+const description =
+  'A track record of taking complex systems from inception to scale across emerging markets, regulated industries, and high-volume infrastructure.'
+
 export const metadata = {
-  title: 'Company & Ventures — David Salami',
-  description:
-    'A track record of taking complex systems from inception to scale across emerging markets, regulated industries, and high-volume infrastructure.',
+  title,
+  description,
+  alternates: { canonical: '/company/' },
+  openGraph: { title, description, url: '/company/' },
+  twitter: { title, description },
 }
 
 const brands = [

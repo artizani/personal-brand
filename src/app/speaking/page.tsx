@@ -2,10 +2,16 @@ import type { Metadata } from 'next'
 import FooterCta from '@/components/FooterCta'
 import { site } from '@/lib/site'
 
+const title = 'Speaking — David Salami | Ideas worth putting in the room.'
+const description =
+  'Keynotes and talks on technology leadership, execution, enterprise company building, security, and operating complex systems.'
+
 export const metadata: Metadata = {
-  title: 'Speaking — David Salami | Ideas worth putting in the room.',
-  description:
-    'Keynotes and talks on technology leadership, execution, enterprise company building, security, and operating complex systems.',
+  title,
+  description,
+  alternates: { canonical: '/speaking/' },
+  openGraph: { title, description, url: '/speaking/' },
+  twitter: { title, description },
 }
 
 const talks = [

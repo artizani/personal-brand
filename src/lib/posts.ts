@@ -131,6 +131,6 @@ export function formatPostDate(value: Date) {
 }
 
 export function siteUrl() {
-  const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim() || 'https://davidsalami.com'
+  const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim() || 'https://www.davidsalami.com'
   return raw.replace(/\/$/, '')
 }

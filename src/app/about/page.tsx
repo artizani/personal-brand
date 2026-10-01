@@ -3,10 +3,16 @@ import Link from 'next/link'
 import ExternalLink from '@/components/ExternalLink'
 import FooterCta from '@/components/FooterCta'
 
+const title = 'About — David Salami | Founder. Builder. Operator.'
+const description =
+  'Founder, builder, and operator building technology that survives reality across emerging markets.'
+
 export const metadata: Metadata = {
-  title: 'About — David Salami | Founder. Builder. Operator.',
-  description:
-    'Founder, builder, and operator building technology that survives reality across emerging markets.',
+  title,
+  description,
+  alternates: { canonical: '/about/' },
+  openGraph: { title, description, url: '/about/' },
+  twitter: { title, description },
 }
 
 const milestones = [
